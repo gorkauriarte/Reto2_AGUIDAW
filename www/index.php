@@ -1,15 +1,12 @@
-<html>
-    <head>
-        <title>Pagina principal</title>
-        <meta charset="utf-8"> 
-        <link rel="stylesheet" href="css/style.css">
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    </head>
-    <body>
-        <p> <?php 
-            include "php/prueba.php";
-            select(); 
-            ?>
-        </p>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principal</title>
+</head>
+<body>
+    
+</body>
 </html>
