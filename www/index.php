@@ -7,6 +7,20 @@
     <title>Principal</title>
 </head>
 <body>
+    <header>
+        <div>
+
+        </div>
+    </header>
     
+    <main>
+        
+    </main>
+
+    <footer>
+        <div>
+
+        </div>
+    </footer>
 </body>
 </html>
