@@ -85,28 +85,31 @@ ul li {
 }
 
 ul li:hover {
-    height: 45px;
+    height: 40px;
 }
 
 ul li #headIcon {
     display: block;
-    font-size: 22px;
+    font-size: 2em;
 }
 
 ul li a {
     color: white;
     text-decoration: none;
-    font-size: 18px;
-    display: none;
+    font-size: 1em;
 }
 
-ul li a:active,
-:focus {
-    display: inline;
-}
-
-@media screen and (max-width:541px) {
+@media screen and (max-width:768px) {
     .buscarBox input {
         width: 30%;
+    }
+    #searchIcon {
+        position: relative;
+        left: -35px;
+        /*right: 7%;*/
+        font-size: 22px;
+        color: rgb(77, 77, 77);
+        cursor: pointer;
+        z-index: 221;
     }
 }
