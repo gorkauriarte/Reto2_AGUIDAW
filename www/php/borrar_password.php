@@ -13,7 +13,7 @@
 
         <div>
             <div class="atras">
-                <button><a href="../php/inicio.php">Volver</a></button>
+                <button><a href="../php/iniciosesion.php">Volver</a></button>
             </div>
         </div>
 
