@@ -5,8 +5,8 @@ RUN docker-php-ext-install mysqli
 RUN docker-php-ext-install pdo pdo_mysql
 RUN apt-get update \
     && apt-get install -y libzip-dev \
-    && apt-get install -y zlib1g-dev \
-    && rm -rf /var/lib/apt/lists/* \
+    && apt-get install/apt/lists/* \
     && docker-php-ext-install zip
 
-RUN a2enmod rewrite
+RUN a2enmod rewrite -y zlib1g-dev \
+    && rm -rf /var/lib

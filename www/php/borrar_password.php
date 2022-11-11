@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INICIO</title>
-    <link rel="stylesheet" href="../css/borrar_pass.css">
+    <link rel="stylesheet" href="../css/borrar_password.css">
 </head>
 
 <body>
@@ -13,7 +13,7 @@
 
         <div>
             <div class="atras">
-                <button><a href="../php/inicio.php">Volver</a></button>
+                <button><a href="../php/iniciosesion.php">Volver</a></button>
             </div>
         </div>
 
