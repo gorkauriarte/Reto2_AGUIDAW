@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INICIO</title>
-    <link rel="stylesheet" href="../css/inicio.css">
+    <title>Inicio de sesion</title>
+    <link rel="stylesheet" href="../css/iniciosesion.css">
 </head>
 
 <body>
@@ -32,6 +32,8 @@
 
                 <input type="password" placeholder="Contraseña" required>
 
+                <input type="password" placeholder="Confirmar Contraseña" required>
+
                 <input type="email" placeholder="Correo Electronico" required>
 
                 <input type="text" placeholder="Teléfono" required>
@@ -40,9 +42,10 @@
             </form>
         </div>
         <div class="borrar-password">
-            <a href="../html/borrar_password.html">¿Has olvidado la contraseña?</a>
+            <a href="borrar_password.php">¿Has olvidado la contraseña?</a>
         </div>
     </div>
+    
     <!--JAVASCRIPT-->
     <script src="../js/jquery-3.1.1.min.js"></script>
     <script src="../js/palanca.js"></script>

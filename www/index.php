@@ -11,5 +11,6 @@
             select(); 
             ?>
         </p>
+        <a href="php/iniciosesion.php">Ir a iniciar sesion</a>
     </body>
 </html>

@@ -1,7 +1,7 @@
 <?php
     function connect() {
         try {
-            $host="localhost";
+            $host="db";
             $dbname="mydb";
             $user="root";
             $pass="test";
@@ -16,5 +16,5 @@
     function close($dbh) {
         $dbh = null;
     }
-    connect();
+    
 ?>
