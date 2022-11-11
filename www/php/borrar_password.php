@@ -4,16 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recuperar contraseña</title>
-    <link rel="stylesheet" href="../css/borrar_password.css">
+    <title>INICIO</title>
+    <link rel="stylesheet" href="../css/borrar_pass.css">
 </head>
+
 <body>
     <div class="contenedor-form">
+
         <div>
             <div class="atras">
-                <button><a href="../php/iniciosesion.php">Volver</a></button>
+                <button><a href="../php/inicio.php">Volver</a></button>
             </div>
         </div>
+
         <div class="formulario">
             <h2>Recuperar Contraseña</h2>
             <form action="#">
@@ -23,4 +26,5 @@
         </div>
     </div>
 </body>
+
 </html>
