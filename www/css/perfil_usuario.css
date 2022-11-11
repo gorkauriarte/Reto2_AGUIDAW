@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    justify-content: center;
+}
+.todos_datos {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    max-width: 700px;
+    background-color: pink;
+}
+.todos_datos>img {
+    display: block;
+    max-width: 25%;
+    border: 2px solid black;
+}
