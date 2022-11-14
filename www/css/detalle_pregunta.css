@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+main {
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    font-size: 1em;
+    font-family: Roboto;
+}
+.pregunta{
+    margin-top: 2em;
+    width: 80vw;
+    display: grid;
+    grid-template-columns: 60% 20% 20%;
+    grid-template-rows: repeat(3, auto);
+    grid-template-areas: 
+        "titulo titulo titulo"
+        "descripcion descripcion descripcion"
+        "etiqueta usuario fecha";
+} 
+.pregunta>h4 {
+    grid-area: titulo;
+    font-size: 1.4em;
+    text-align: justify;
+} 
+.pregunta>p {
+    grid-area: descripcion;
+    text-align: justify;
+} 
+.pregunta>.etiquetas {
+    grid-area: etiqueta;
+    display: flex;
+    flex-wrap: wrap;
+} 
+.pregunta>.etiquetas>.etiqueta {
+    background-color: rgb(0, 113, 183);
+    border-radius: 10em 10em;
+    color: white;
+    margin: .4em;
+    padding: .1em;
+    width: 10em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.pregunta>.usuario_pregunta {
+    grid-area: usuario;
+    display: flex;
+    justify-content: end;
+} 
+.pregunta>.fecha_pregunta {
+    grid-area: fecha;
+    display: flex;
+    justify-content: end;
+} 
+
+img {
+    width: 20vw;
+}
+
+
+
+@media screen and (max-width:768px) {
+
+}

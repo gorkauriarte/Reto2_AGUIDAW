@@ -63,7 +63,6 @@ body {
 }
 .texto_individual>label {
     font-size: 20px;
-    
 }
 .texto_individual>input{
     background-color: rgba(0, 0, 0, .8);
@@ -100,6 +99,7 @@ body {
 .boton>button:hover {
     background-color:cornflowerblue;
 }
+
 
 @media screen and (max-width:1200px) {
     .boton>button {
