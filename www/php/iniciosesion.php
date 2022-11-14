@@ -17,9 +17,9 @@
          <!--INICIO DE SESISON-->
         <div class="formulario">
             <h2>Iniciar Sesión</h2>
-            <form action="#">
-                <input type="email" placeholder="Correo Electronico" required>
-                <input type="password" placeholder="Contraseña" required>
+            <form action="auth/iniciar_sesion.php" method="post">
+                <input type="email" name="email" placeholder="Correo Electronico" required>
+                <input type="password" name="password" placeholder="Contraseña" required>
                 <input type="submit" value="Iniciar Sesión">
             </form>
         </div>
@@ -27,16 +27,18 @@
         <!--CREAR USUARIO-->
         <div class="formulario">
             <h2>Crea tu Cuenta</h2>
-            <form action="#">
-                <input type="text" placeholder="Usuario" required>
+            <form action="auth/registrar.php" method="post">
+                <input type="text" name="nombre" placeholder="Nombre" required>
 
-                <input type="password" placeholder="Contraseña" required>
+                <input type="text" name="apellido" placeholder="Apellido" required>
 
-                <input type="password" placeholder="Confirmar Contraseña" required>
+                <input type="text" name="alias" placeholder="alias" required>
 
-                <input type="email" placeholder="Correo Electronico" required>
+                <input type="email" name="email" placeholder="Correo Electronico" required>
 
-                <input type="text" placeholder="Teléfono" required>
+                <input type="password" name="password" placeholder="Contraseña" required>
+
+                <input type="password" name="password_confirm" placeholder="Confirmar Contraseña" required>
 
                 <input type="submit" value="Registrarse">
             </form>
