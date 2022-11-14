@@ -17,8 +17,6 @@ function habilitar() {
     boton.setAttribute("id", "btConfirmarCambiarDatos");
 }
 
-
-
 function deshabilitar() {
     var nombre = document.getElementById("nombre");
     var apellido = document.getElementById("apellido");

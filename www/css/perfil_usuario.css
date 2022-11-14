@@ -72,10 +72,7 @@ body {
     padding: 0.5em;
     color:white;
 }
-.texto_individual>input::placeholder {
-   
-    color: white;
-}
+
 .boton {
     display: flex;
     justify-content: center;
