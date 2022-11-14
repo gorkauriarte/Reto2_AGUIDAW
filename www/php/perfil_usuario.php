@@ -12,25 +12,43 @@
 
 
     <main>
-        <div class="todos_datos">
-                <img src="../img/bg2.jpg" alt="La imagen no se ha encontrado"/>
-            <div class="datos_texto">
-                <p>Nombre: </p>
-                <p class="valor"></p>
-                
-                <p>Apellido: </p>
-                <p class="valor"></p>
-                            
-                <p>Email: </p>
-                <p class="valor"></p>
-                              
-                <p>Username: </p>
-                <p class="valor"></p>
+        
+        <div class="todo">
+            <div class="titulo">
+                <h1> Datos del usuario </h1>
+            </div>
+            <div class="datos">
+                <div class="img">
+                    <img src="../img/bg2.jpg" alt="La imagen no se ha encontrado"/>
+                    <button> Cambiar imagen de perfil </button>
+                </div>
+                <div class="texto">
+                    <div class="texto_individual">
+                        <label for="nombre">Nombre: </label>
+                        <input type="text" id="nombre" name="nombre" value="ameer" readonly>
+                    </div>
+                    <div class="texto_individual">
+                        <label for="apellido"p>Apellido: </label>
+                        <input type="text" id="apellido" name="apellido" value="hamza" readonly>
+                    </div>
+                    <div class="texto_individual">         
+                        <label for="email">Email: </label>
+                        <input type="text" id="email" name="email" value="ameer@gmail.com" readonly>
+                    </div>
+                    <div class="texto_individual">           
+                        <label for="username">Username: </label>
+                        <input type="text" id="username" name="username" value="ameerhamza" readonly>
+                    </div>
+                </div>
+            </div>
+            <div class="boton">
+                <button id="btCambiarDatos">Cambiar datos</button>
             </div>
         </div>
     </main>
 
 
     <footer></footer>
+    <script src="../js/perfil_usuario.js"></script>
 </body>
 </html>
