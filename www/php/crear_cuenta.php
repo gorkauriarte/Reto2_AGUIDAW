@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>registro</title>
-    <link rel="stylesheet" href="../css/CrearCuenta.css">
+    <link rel="stylesheet" href="../css/inicio.css">
 </head>
 <body>
+<div class="contenedor-form">
+    
     <!--CREAR USUARIO-->
     <div class="formulario">
             <h2>Crea tu Cuenta</h2>
@@ -23,9 +25,7 @@
 
                 <input type="submit" value="Registrarse">
             </form>
-        <div class="borrar-password">
-            <a href="borrar_password.php">¿Has olvidado la contraseña?</a>
-        </div>
     </div>
+</div>
 </body>
 </html>

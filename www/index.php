@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,11 +8,16 @@
     <title>Principal</title>
 </head>
 <body>
-    <h2>hello</h2>
-    <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-        Earum consectetur explicabo atque reprehenderit omnis fuga nulla aliquam quo tempore quae nam neque, expedita, 
-        exercitationem, magnam recusandae doloribus ducimus cumque provident?
-    </p>
+    <header>
+    <?php
+        require('componentes/header.php');
+    ?>
+    </header>
+    
+    <footer>
+        <?php
+            require('componentes/footer.php');
+        ?>
+    </footer>
 </body>
 </html>
