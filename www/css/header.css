@@ -10,7 +10,7 @@ nav {
     display: flex;
     height: 80px;
     width: 100%;
-    background: #1b1b1b;
+    background: #000000;
     align-items: center;
     justify-content: space-between;
     padding: 0 50px 0 100px;
@@ -125,7 +125,7 @@ input[type="checkbox"] {
     z-index: -1;
     width: 100%;
     padding: 0 30px;
-    color: #1b1b1b;
+    color: #000000;
 }
 
 .content div {
