@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Pie de pagina</title>
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <link rel="stylesheet" href="../css/footer.css">
-     <!--Iconos-->
-    <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
-</head>
-<body>
 <!--Pie de Pagina-->
     <footer class="pie-pagina">
         <div class="grupo-1">
@@ -38,5 +27,3 @@
             <small>&copy; 2022 <b>Aguidaw</b> - Todos los Derechos Reservados.</small>
         </div>
     </footer>
-</body>
-</html>

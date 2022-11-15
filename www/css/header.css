@@ -10,7 +10,7 @@ nav {
     display: flex;
     height: 80px;
     width: 100%;
-    background: #1b1b1b;
+    background: #000000;
     align-items: center;
     justify-content: space-between;
     padding: 0 50px 0 100px;
@@ -72,8 +72,8 @@ input[type="checkbox"] {
 }
 
 @media (max-width: 768px) {
-    body {
-        min-height: calc(100% - 100px);
+    nav {
+        z-index: 999;
     }
     nav .menu-btn i {
         display: block;
@@ -91,6 +91,7 @@ input[type="checkbox"] {
         text-align: center;
         display: block;
         transition: all 0.3s ease;
+        opacity: 80%;
     }
     #click:checked~ul {
         left: 0;
@@ -125,7 +126,7 @@ input[type="checkbox"] {
     z-index: -1;
     width: 100%;
     padding: 0 30px;
-    color: #1b1b1b;
+    color: #000000;
 }
 
 .content div {
