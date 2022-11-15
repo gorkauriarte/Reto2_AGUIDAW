@@ -3,11 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
-body {
-    font-size: 1em;
-    font-family: Roboto;
-}
 main {
+    font-size: .9em;
+    font-family: Roboto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -103,16 +101,19 @@ h2 {
     align-items: center;
 }
 .respuesta>.reaccion>p {
-    margin: 2em;
+    margin: .2em;
+}
+.respuesta>.reaccion>.like {
+    margin-right: .8em;
 }
 .respuesta>.reaccion>button {
+    font-size: 15px;
     margin: .2em;
-    padding: .2em;
+    padding: .4em;
 }
 .respuesta>.usuario_respuesta {
     grid-area: usuario;
     margin-top: .4em;
-    border: 1px solid black;
     display: flex;
     justify-content: right;
     align-items: center;
@@ -127,7 +128,78 @@ h2 {
     margin-right: 0.4em;
 }
 
+.crear_respuesta {
+    margin-top: 3vw;
+    width: 78vw;
+    display: flex;
+    flex-direction: column;
+}
+.crear_respuesta>p {
+    margin: .2em 0;
+}
+.crear_respuesta>form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.crear_respuesta>form>textarea {
+    margin: .2em 0;
+    padding: .2em;
+    width: 98%;
+    min-height: 4vw;
+    font-size: 1em;
+}
+.crear_respuesta>form>textarea::placeholder {
+    font-size: 1em;
+}
+.crear_respuesta>form>input {
+    margin: .2em 0;
+    width: 98%;
+    font-size: 1em;
+}
+.crear_respuesta>form>button {
+    margin: .2em 0 0 0;
+    padding: .3em;
+    width: 10vw;
+    display: flex;
+    justify-content: center;
+    font-size: 1em;
+}
 
+
+
+
+@media screen and (max-width:1200px) {
+    main {
+        font-size: .8em;
+    }
+    .respuesta>.reaccion>button {
+        font-size: 11px;
+    }
+    .crear_respuesta>form>textarea {
+        font-size: .8em;
+    }
+    .crear_respuesta>form>textarea::placeholder {
+        font-size: .8em;
+    }
+    .crear_respuesta>form>input {
+        font-size: .8em;
+    }
+    .crear_respuesta>form>button {
+        font-size: 1em;
+    }
+}
 @media screen and (max-width:768px) {
-
+    main {
+        font-size: .6em;
+    }
+    .respuesta>.reaccion>button {
+        font-size: 9px;
+    }
+    .crear_respuesta>form>input {
+        font-size: .8em;
+    }
+    .crear_respuesta>form>button {
+        font-size: .8em;
+    }
 }

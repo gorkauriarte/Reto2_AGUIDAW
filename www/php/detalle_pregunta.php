@@ -9,6 +9,7 @@
     <link rel="stylesheet"  href="../css/header.css">
     <link rel="stylesheet"  href="../css/footer.css">
     <title>Detalle de la pregunta</title>
+    <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -53,9 +54,9 @@
             </div>
             <div class="reaccion">
                 <button id="like"><i class="fa fa-thumbs-up"></i></button>
-                <p>5</p>
+                <p class="like">5</p>
                 <button id="dislike"><i class="fa fa-thumbs-down"></i></button>
-                <p>2</p>
+                <p class="dislike">2</p>
             </div>
             <div class="usuario_respuesta">
                 <img src="../img/aeropspace_shutterstock_1048379746.jpg">
@@ -69,14 +70,13 @@
             <form>
                 <textarea class="descripcion" id="descripcion" placeholder="Escribe tu respuesta"></textarea>
                 <input type="file" name="imagen_respuesta" id="imagen_respuesta">
+                <button>Enviar respuesta</button>
             </form>
-            <button>Enviar respuesta</button>
+            
         </div>
         
     </main>
 
-    <?php
-        require "../componentes/footer.php";
-    ?>
+    
 </body>
 </html>

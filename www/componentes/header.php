@@ -1,6 +1,4 @@
 
-
-<header>
     <nav>
          <div class="logo">
             <img src="../img/Stack_Overflow_icon.svg.png" alt="Error en la imagen">
@@ -16,4 +14,3 @@
             <li><a href="#">Sing In/Up</a></li>
          </ul>
       </nav>
-</header>
