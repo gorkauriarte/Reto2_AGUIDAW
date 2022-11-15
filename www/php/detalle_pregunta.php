@@ -10,6 +10,7 @@
     <link rel="stylesheet"  href="../css/footer.css">
     <title>Detalle de la pregunta</title>
     <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
 
@@ -30,12 +31,14 @@
                 <div class="etiqueta"><p>Etiqueta</p></div>
                 <div class="etiqueta"><p>Etiqueta2</p></div>
             </div>
-            <div class="usuario_pregunta">
-                <img src="../img/aeropspace_shutterstock_1048379746.jpg">
-                <p>ameerhamza</p>
-            </div>
-            <div class="fecha_pregunta">
-                <p>22/06/2025</p>
+            <div class="pregunta_usuario_fecha">
+                <div class="usuario_pregunta">
+                    <img src="../img/aeropspace_shutterstock_1048379746.jpg">
+                    <p>ameerhamza</p>
+                </div>
+                <div class="fecha_pregunta">
+                    <p>22/06/2025</p>
+                </div>
             </div>
         </div>
 
@@ -62,7 +65,52 @@
                 <img src="../img/aeropspace_shutterstock_1048379746.jpg">
                 <p>brukiñigo</p>
             </div>
-            
+        </div>
+
+        <div class="respuesta">
+            <div class="respuesta_explicacion">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non odio porttitor, 
+                    finibus ante bibendum, dictum sapien. Maecenas commodo mauris ut mauris condimentum, 
+                    at tempor tortor gravida. Fusce a nunc quis erat sagittis convallis ac quis sem. Nam 
+                    quis volutpat nibh. Aliquam posuere nisl ac metus venenatis, in ornare nisl fringilla. 
+                    Phasellus gravida fermentum posuere. Sed laoreet nisl id lacinia laoreet. Nam pellentesque, 
+                    neque ac accumsan ultricies, tortor metus varius diam, et sodales neque nulla a ex. Nunc eget 
+                    magna a quam efficitur gravida sed at elit.</p>
+                <img src="../img/bg2.jpg">
+            </div>
+            <div class="reaccion">
+                <button id="like"><i class="fa fa-thumbs-up"></i></button>
+                <p class="like">5</p>
+                <button id="dislike"><i class="fa fa-thumbs-down"></i></button>
+                <p class="dislike">2</p>
+            </div>
+            <div class="usuario_respuesta">
+                <img src="../img/aeropspace_shutterstock_1048379746.jpg">
+                <p>brukiñigo</p>
+            </div>
+        </div>
+
+        <div class="respuesta">
+            <div class="respuesta_explicacion">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non odio porttitor, 
+                    finibus ante bibendum, dictum sapien. Maecenas commodo mauris ut mauris condimentum, 
+                    at tempor tortor gravida. Fusce a nunc quis erat sagittis convallis ac quis sem. Nam 
+                    quis volutpat nibh. Aliquam posuere nisl ac metus venenatis, in ornare nisl fringilla. 
+                    Phasellus gravida fermentum posuere. Sed laoreet nisl id lacinia laoreet. Nam pellentesque, 
+                    neque ac accumsan ultricies, tortor metus varius diam, et sodales neque nulla a ex. Nunc eget 
+                    magna a quam efficitur gravida sed at elit.</p>
+                <img src="../img/bg2.jpg">
+            </div>
+            <div class="reaccion">
+                <button id="like"><i class="fa fa-thumbs-up"></i></button>
+                <p class="like">5</p>
+                <button id="dislike"><i class="fa fa-thumbs-down"></i></button>
+                <p class="dislike">2</p>
+            </div>
+            <div class="usuario_respuesta">
+                <img src="../img/aeropspace_shutterstock_1048379746.jpg">
+                <p>brukiñigo</p>
+            </div>
         </div>
         
         <div class="crear_respuesta">
@@ -76,7 +124,10 @@
         </div>
         
     </main>
+        
+    <?php
+        require "../componentes/footer.php";
+    ?>
 
-    
 </body>
 </html>

@@ -3,23 +3,28 @@
     padding: 0;
     box-sizing: border-box;
 }
+body {
+    position: relative;
+    min-height: 100vh;
+}
 main {
     font-size: .9em;
     font-family: Roboto;
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
 .pregunta{
     margin-top: 2em;
     width: 80vw;
     display: grid;
-    grid-template-columns: 60% 20% 20%;
+    grid-template-columns: 75% 25%;
     grid-template-rows: repeat(3, auto);
     grid-template-areas: 
         "titulo titulo titulo"
         "descripcion descripcion descripcion"
-        "etiqueta usuario fecha";
+        "etiqueta userfecha userfecha";
 } 
 .pregunta>h4 {
     grid-area: titulo;
@@ -30,6 +35,7 @@ main {
     grid-area: descripcion;
     text-align: justify;
     display: flex;
+    flex-direction: column;
     padding: 0 .4em;
 } 
 .pregunta>.pregunta_explicacion>img {
@@ -46,26 +52,31 @@ main {
     border-radius: 10em 10em;
     color: white;
     margin: .4em;
-    padding: .1em;
+    padding: .5em;
     width: 10em;
     display: flex;
     justify-content: center;
     align-items: center;
     border: 1px solid black;
 }
-.pregunta>.usuario_pregunta {
-    grid-area: usuario;
+.pregunta>.pregunta_usuario_fecha {
+    grid-area: userfecha;
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     align-items: center;
 } 
-.pregunta>.usuario_pregunta>img {
+.pregunta>.pregunta_usuario_fecha>.usuario_pregunta>img {
     border-radius: 50%;
     width: 3em;
     height: 3em;
     margin-right: .4em;
 }
-.pregunta>.fecha_pregunta {
+.pregunta>.pregunta_usuario_fecha>.usuario_pregunta {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+} 
+.pregunta>.pregunta_usuario_fecha>.fecha_pregunta {
     grid-area: fecha;
     display: flex;
     justify-content: end;
@@ -76,12 +87,14 @@ h2 {
     width: 80vw;
     text-align: left;
     margin-bottom: .4em;
+    text-decoration: underline;
 }
 
 .respuesta {
     width: 78vw;
     border: 1px solid black;
     padding: 0.4em;
+    margin: 1em 0;
     text-align: justify;
     display: grid;
     grid-template-areas: "texto texto" "imagen usuario";
@@ -89,6 +102,7 @@ h2 {
 .respuesta>.respuesta_explicacion {
     grid-area: texto;
     display: flex;
+    flex-direction: column;
 } 
 .respuesta>.respuesta_explicacion>img {
     grid-area: imagen;
@@ -129,7 +143,7 @@ h2 {
 }
 
 .crear_respuesta {
-    margin-top: 3vw;
+    margin: 3vw 0 2vw 0;
     width: 78vw;
     display: flex;
     flex-direction: column;
@@ -173,6 +187,13 @@ h2 {
     main {
         font-size: .8em;
     }
+    .pregunta>.pregunta_usuario_fecha {
+        display: flex;
+        flex-direction: column;
+    }
+    .pregunta>.pregunta_usuario_fecha>.fecha_pregunta {
+        margin-top: .2em;
+    }
     .respuesta>.reaccion>button {
         font-size: 11px;
     }
@@ -192,6 +213,9 @@ h2 {
 @media screen and (max-width:768px) {
     main {
         font-size: .6em;
+    }
+    .pregunta>.etiquetas>.etiqueta {
+        padding: 0 !important;
     }
     .respuesta>.reaccion>button {
         font-size: 9px;

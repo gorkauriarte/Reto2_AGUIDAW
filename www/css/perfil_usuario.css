@@ -4,11 +4,13 @@
     box-sizing: border-box;
 }
 body {
-    display: flex;
-    justify-content: center;
     background: url(../img/aeropspace_shutterstock_1048379746.jpg);
     background-size: cover;
     background-attachment: fixed;
+}
+main {
+    display: flex;
+    justify-content: center;
     font-family: Roboto;
 }
 .todo {

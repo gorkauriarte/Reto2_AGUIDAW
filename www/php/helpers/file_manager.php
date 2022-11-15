@@ -46,7 +46,7 @@ function subirFoto($foto) // hay pasar este parametro como $_FILES['nombre_del_c
             $mensaje = "imagen subido con exito.";
         }
         else{
-            $mensaje = "Error, subiendo la imagen.",
+            $mensaje = "Error, subiendo la imagen.";
         }
     }
 
