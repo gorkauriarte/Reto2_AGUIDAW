@@ -3,14 +3,14 @@
     padding: 0;
     box-sizing: border-box;
 }
+body {
+    font-size: 1em;
+    font-family: Roboto;
+}
 main {
-    background-color: lightgray;
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 100vh;
-    font-size: 1em;
-    font-family: Roboto;
 }
 .pregunta{
     margin-top: 2em;
@@ -28,10 +28,16 @@ main {
     font-size: 1.4em;
     text-align: justify;
 } 
-.pregunta>p {
+.pregunta>.pregunta_explicacion {
     grid-area: descripcion;
     text-align: justify;
+    display: flex;
+    padding: 0 .4em;
 } 
+.pregunta>.pregunta_explicacion>img {
+    max-width: 10vw;
+    padding-left: .4em;
+}
 .pregunta>.etiquetas {
     grid-area: etiqueta;
     display: flex;
@@ -53,17 +59,73 @@ main {
     grid-area: usuario;
     display: flex;
     justify-content: end;
+    align-items: center;
 } 
+.pregunta>.usuario_pregunta>img {
+    border-radius: 50%;
+    width: 3em;
+    height: 3em;
+    margin-right: .4em;
+}
 .pregunta>.fecha_pregunta {
     grid-area: fecha;
     display: flex;
     justify-content: end;
+    align-items: center;
 } 
 
-img {
-    width: 20vw;
+h2 {
+    width: 80vw;
+    text-align: left;
+    margin-bottom: .4em;
 }
 
+.respuesta {
+    width: 78vw;
+    border: 1px solid black;
+    padding: 0.4em;
+    text-align: justify;
+    display: grid;
+    grid-template-areas: "texto texto" "imagen usuario";
+}
+.respuesta>.respuesta_explicacion {
+    grid-area: texto;
+    display: flex;
+} 
+.respuesta>.respuesta_explicacion>img {
+    grid-area: imagen;
+    max-width: 10vw;
+    padding-left: .4em;
+}
+.respuesta>.reaccion {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.respuesta>.reaccion>p {
+    margin: 2em;
+}
+.respuesta>.reaccion>button {
+    margin: .2em;
+    padding: .2em;
+}
+.respuesta>.usuario_respuesta {
+    grid-area: usuario;
+    margin-top: .4em;
+    border: 1px solid black;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+.respuesta>.usuario_respuesta>img {
+    border-radius: 50%;
+    width: 3em;
+    height: 3em;
+    margin-right: .4em;
+}
+.respuesta>.usuario_respuesta>p {
+    margin-right: 0.4em;
+}
 
 
 @media screen and (max-width:768px) {
