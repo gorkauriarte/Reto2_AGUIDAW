@@ -72,8 +72,8 @@ input[type="checkbox"] {
 }
 
 @media (max-width: 768px) {
-    body {
-        min-height: calc(100% - 100px);
+    nav {
+        z-index: 999;
     }
     nav .menu-btn i {
         display: block;
@@ -91,6 +91,7 @@ input[type="checkbox"] {
         text-align: center;
         display: block;
         transition: all 0.3s ease;
+        opacity: 80%;
     }
     #click:checked~ul {
         left: 0;

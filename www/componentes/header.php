@@ -10,5 +10,6 @@
             <li><a class="active" href="#">Home</a></li>
             <li><a href="#">Nosotros</a></li>
             <li><a href="#">Help</a></li>
-            <li><a href="#">Sing In/Up</a></li>
+            <li><a href="#">Sign In/Up</a></li>
          </ul>
+      </nav>
