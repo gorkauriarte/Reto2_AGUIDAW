@@ -9,7 +9,7 @@
          <ul>
             <li><a class="active" href="#">Home</a></li>
             <li><a href="#">Nosotros</a></li>
-            <li><a href="#">Help</a></li>
+            <li><a href="componentes/help.php">Help</a></li>
             <li><a href="#">Sign In/Up</a></li>
          </ul>
       </nav>

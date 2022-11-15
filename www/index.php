@@ -17,7 +17,9 @@
         require('componentes/header.php');
     ?>
     </header>
+    <main>
     
+    </main>
     <footer>
         <?php
             require('componentes/footer.php');
