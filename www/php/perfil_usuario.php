@@ -16,7 +16,7 @@
         require('../componentes/header.php');
     ?>
 
-    <main>
+    <main class="contenido">
         
         <div class="todo">
             <div class="titulo">
