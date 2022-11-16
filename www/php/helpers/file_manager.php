@@ -1,10 +1,10 @@
 <?php
 
 
-function subirFoto($foto) // hay pasar este parametro como $_FILES['nombre_del_campo_de_imagen]
+function subirFoto($foto,$ruta) // hay pasar este parametro como $_FILES['nombre_del_campo_de_imagen]
 {
     $mensaje = "";
-    $directorio = "../../imagenes/";
+    $directorio = $ruta;
     $archivo = $directorio . basename($foto['name']);
     $estadoSubir = 0;
     $tipoImage = strtolower(pathinfo($archivo,PATHINFO_EXTENSION));
@@ -16,13 +16,13 @@ function subirFoto($foto) // hay pasar este parametro como $_FILES['nombre_del_c
         $estadoSubir = 1;
     }
     else{
-        $estado = 0;
+        $estadoSubir = 0;
     }
 
     // comprobar si ya existe un fichero con mismo nombre
     if(file_exists($archivo)){
         $mensaje = "El archivo ya existe en el directorio.";
-        $estado = 0;
+        $estadoSubir = 0;
     }
 
     // comprobar si archivo es mayor que 5MB
@@ -46,11 +46,11 @@ function subirFoto($foto) // hay pasar este parametro como $_FILES['nombre_del_c
             $mensaje = "imagen subido con exito.";
         }
         else{
-            $mensaje = "Error, subiendo la imagen.",
+            $mensaje = "Error, subiendo la imagen.";
         }
     }
 
-    return ["estado" => $estadoSubir,"mensaje" => $mensaje];
+    return ["estado" => $estadoSubir,"mensaje" => $mensaje,"ruta" => "imagenes/" . basename($foto['name'])];
 
 }
 
