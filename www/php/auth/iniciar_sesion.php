@@ -3,14 +3,8 @@
 session_start();
 require "../basedatos.php";
 require "../models/usuario.php";
-echo count($_POST);
 
-foreach($_POST as $key => $dato)
-{
-    echo $key . "=>" . $dato . "<br>";
-}
 
-exit;
 if(isset($_POST['email']) && isset($_POST['password'])){
 
 $email = $_POST['email'];
@@ -20,15 +14,15 @@ $dbc = connect();
 $usuario = buscarUsuarioPorEmail($dbc,$email);
 if($usuario){
 
-    // TODO: falta encryptar la contraseña    
-    if($usuario->password === $password)
+       
+    if(password_verify($password,$usuario->password))
     {
         $_SESSION['id_usuario'] = $usuario->id;
         $_SESSION['nombre'] = $usuario->nombre;
 
         close($dbc);
 
-        header("location: /php/vistas/home.php");
+        header("location: ../vistas/home.php");
     }
     else{
         echo "la contraseña esta mal";
