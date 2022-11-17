@@ -5,7 +5,7 @@ const url='../unaitestbd.php ';
 //funcion de meter dato a traves de un fetch
 function meterdatofech() {
     
- var formData = new FormData();
+var formData = new FormData();
 formData.append('action', '');
 formData.append('cosa', 'si');
 formData.append('id_pregunta', '3');
