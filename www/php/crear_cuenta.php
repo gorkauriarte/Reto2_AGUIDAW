@@ -14,7 +14,7 @@
             <h2>Crea tu Cuenta</h2>
             <form action="#">
                 <input type="text" id="" name ="" placeholder="Usuario" required>
-
+                
                 <input type="password" id="" name ="" placeholder="Contraseña" required>
 
                 <input type="password" id="" name ="" placeholder="Confirmar Contraseña" required>

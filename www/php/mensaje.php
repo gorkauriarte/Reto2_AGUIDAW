@@ -14,7 +14,7 @@
       if(mail($receiver, $subject, $body, $sender)){
          echo "Your message has been sent";
       }else{
-         echo "Sorry, failed to send your message!";
+         echo "Enviando tu mensaje...";
       }
     }else{
       echo "Enter a valid email address!";
