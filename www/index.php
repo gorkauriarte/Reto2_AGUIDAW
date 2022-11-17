@@ -15,16 +15,16 @@
     <link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
-    <header>
+
     <?php
         require('componentes/header.php');
     ?>
-    </header>
-    
-    <footer>
-        <?php
-            require('componentes/footer.php');
-        ?>
-    </footer>
+
+    <main></main>
+
+    <?php
+        require('componentes/footer.php');
+    ?>
+
 </body>
 </html>

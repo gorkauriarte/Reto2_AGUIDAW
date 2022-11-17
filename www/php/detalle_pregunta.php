@@ -41,9 +41,9 @@
                 </div>
             </div>
         </div>
-
-        <h2> Respuestas </h2>
-
+        <div class="titulo_respuesta">
+            <h2> Respuestas </h2>
+        </div>
         <div class="respuesta">
             <div class="respuesta_explicacion">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non odio porttitor, 
