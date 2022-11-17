@@ -4,12 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INICIO</title>
+    <title>Inicio de sesion</title>
     <link rel="stylesheet" href="../css/inicio.css">
 </head>
 
 <body>
     <div class="contenedor-form">
+
+
          <!--INICIO DE SESISON-->
         <div class="formulario">
             <h2>Iniciar Sesión</h2>
