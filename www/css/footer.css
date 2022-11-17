@@ -97,7 +97,7 @@ main {
     .pie-pagina .grupo-2 small {
         font-size: .8em;
     }
-    .pie-pagina .grupo-1 .box figure img {
-        width: 250px;
+    .pie-pagina .grupo-1 .red-social a {
+        display: flex;
     }
 }

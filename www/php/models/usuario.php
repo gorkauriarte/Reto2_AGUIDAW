@@ -32,3 +32,17 @@ function insertarUsuario($dbc,array $datos){
     return $statement->execute();
 
 }
+
+function actulizarUsuario($dbc, $id,array $datos){
+    $sql = "update usuarios set nombre=:nombre,apellido=:apellido,alias=:alias,email=:email where id=:id";
+    $statement = $dbc->prepare($sql);
+
+    $statement->bindParam(":nombre", $datos['nombre']);
+    $statement->bindParam(":apellido", $datos['apellido']);
+    $statement->bindParam(":alias", $datos['alias']);
+    $statement->bindParam(":email", $datos['email']);
+    $statement->bindParam(":id", $id);
+
+    return $statement->execute();
+
+}
