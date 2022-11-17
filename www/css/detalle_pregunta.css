@@ -3,10 +3,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-body {
-    position: relative;
-    min-height: 100vh;
-}
 main {
     font-size: .9em;
     font-family: Roboto;
@@ -82,7 +78,7 @@ main {
     align-items: center;
 } 
 
-h2 {
+.titulo_respuesta>h2 {
     width: 80vw;
     text-align: left;
     margin-bottom: .4em;

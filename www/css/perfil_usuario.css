@@ -7,17 +7,14 @@ body {
     background: url(../img/aeropspace_shutterstock_1048379746.jpg);
     background-size: cover;
     background-attachment: fixed;
-   
-    
 }
-main.contenido {
+main {
     display: flex;
     justify-content: center;
+    align-items: center;
     font-family: Roboto;
-
 }
 .todo {
-    margin-top: 6vh;
     width: 1200px;
     background-color: rgba(0, 0, 0, .8);
     color: white;
