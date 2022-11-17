@@ -21,4 +21,9 @@
                 </div>
             </div>
         </div>
+
+        <div class="grupo-2">
+            <small>&copy; 2022 <b>Aguidaw</b> - Todos los Derechos Reservados.</small>
+        </div>
     </footer>
+
