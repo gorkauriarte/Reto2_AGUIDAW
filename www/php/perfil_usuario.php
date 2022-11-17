@@ -6,10 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil de usuario</title>
     <link rel="stylesheet" href="../css/perfil_usuario.css">
+    <link rel="stylesheet" href="../css/header.css" class="css">
+    <link rel="stylesheet" href="../css/footer.css" class="css">
+    <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header></header>
-
+    
+    <?php
+        require('../componentes/header.php');
+    ?>
 
     <main>
         
@@ -48,7 +53,12 @@
     </main>
 
 
-    <footer></footer>
+    
+    <?php
+        require('../componentes/footer.php');
+    ?>
+
+
     <script src="../js/perfil_usuario.js"></script>
 </body>
 </html>
