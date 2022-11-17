@@ -2,6 +2,12 @@
 
 session_start();
 
+if(isset($_SESSION['id_usuario']) || (isset($_SESSION['loggedin'])) && $_SESSION['loggedin'] == true)
+{
+    $_SESSION['error-accesso'] = "La sesion ya esta iniciada";
+    header("location: vistas/home.php");
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

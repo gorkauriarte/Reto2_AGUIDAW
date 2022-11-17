@@ -8,6 +8,7 @@ require "../basedatos.php";
 
 function vuelveAtras(){
     header("location: /php/crear_cuenta.php");
+    exit;
 }
 
 // rellanar los datos en una sesion si por algun error tenemos que ir atras podemos rellanar el formulario
@@ -37,6 +38,17 @@ if(!isset($_POST['apellido']) || $_POST['apellido'] == "")
 if(!isset($_POST['email']) || $_POST['email'] == "")
 {
     $_SESSION['errors']['email'] = "El campo Email es obligatorio";
+    vuelveAtras();
+}
+
+if(isset($_POST['email']) && !filter_var($_POST['email'],FILTER_VALIDATE_EMAIL))
+{
+    $_SESSION['errors']['email'] = "El formato del campo Email es incorrecto";
+    vuelveAtras();
+}
+
+if(buscarUsuarioPorEmail(connect(),$_POST['email'])){
+    $_SESSION['errors']['email'] = "Ya existe una cuenta con este correo";
     vuelveAtras();
 }
 
@@ -84,7 +96,9 @@ $dbc = connect();
 $usuarioInsertado =  insertarUsuario($dbc,$_POST);
 
 // TODO : comprobar si se ha creado el usuario y mandar a la pagina inicial o a la anterior con algun mensaje
-
-var_dump($usuarioInsertado);
+if($usuarioInsertado){
+    $_SESSION['exito'] = "Usuario se ha creado con exito";
+    header("location: /iniciasesion.php");
+}
 exit;
 

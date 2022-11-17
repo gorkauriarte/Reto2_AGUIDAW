@@ -1,3 +1,15 @@
+<?php 
+session_start();
+
+if(isset($_SESSION['id_usuario']) || (isset($_SESSION['loggedin'])) && $_SESSION['loggedin'] == true)
+{
+    $_SESSION['error-accesso'] = "La sesion ya esta iniciada";
+    header("location: vistas/home.php");
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -15,9 +27,24 @@
          <!--INICIO DE SESISON-->
         <div class="formulario">
             <h2>Iniciar Sesión</h2>
+            <?php if(isset($_SESSION['login-error'])): ?>
+            <ul>
+                <li class="mensaje-error"> <?= $_SESSION['login-error'] ?> </li>
+            </ul>
+            <?php endif; ?>
             <form action="auth/iniciar_sesion.php" method="post">
-                <input type="email" name="email" placeholder="Correo Electronico" required>
-                <input type="password" name="password" placeholder="Contraseña" required>
+                <div class="fieldset">
+                    <input type="email" name="email" placeholder="Correo Electronico" <?php if(isset($_SESSION['old']['email'])): ?> value="<?= $_SESSION['old']['email'] ?>" <?php endif; ?> required>
+                    <?php if(isset($_SESSION['errors']['email'])): ?>
+                        <small class="mensaje-error"><?= $_SESSION['errors']['email'] ?></small>
+                    <?php endif; ?>
+                </div>
+                <div class="fieldset">
+                    <input type="password" name="password" placeholder="Contraseña" >
+                    <?php if(isset($_SESSION['errors']['password'])): ?>
+                        <small class="mensaje-error"><?= $_SESSION['errors']['password'] ?></small>
+                    <?php endif; ?>
+                </div>
                 <input type="submit" value="Iniciar Sesión">
             </form>
         </div>
@@ -30,3 +57,8 @@
 </body>
 
 </html>
+<?php 
+unset($_SESSION['errors']);
+unset($_SESSION['old']);
+unset($_SESSION['login-error']);
+?>
