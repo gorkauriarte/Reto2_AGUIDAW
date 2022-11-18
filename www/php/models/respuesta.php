@@ -1,7 +1,7 @@
 <?php
 
 function insertarrespuesta($dbc,array $datos){
-    $sql = "insert into respuestas(id_pregunta,descripcion,imagen) values(:id_pregunta,:descripcion,:imagen)";
+    $sql = "insert into respuestas(id_pregunta,id_usuario,descripcion,imagen) values(:id_pregunta,'0',:descripcion,:imagen)";
     $statement = $dbc->prepare($sql);
 
     $statement->bindParam(":id_pregunta", $datos['id_pregunta']);    
@@ -45,9 +45,9 @@ function buscarrespuestasporfecha($dbc,$pregunta,$fecha){
     
 }
 function buscarrespuestasporvotos($dbc,$pregunta){
-    $sql = "select sum(reacciones.positivos) as megusta, sum(reacciones.negativos) as nomegusta respuestas.id as lares, respuestas.descripcion as texto 
+    $sql = "select sum(reacciones.megusta) as megusta, sum(reacciones.nomegusta) as nomegusta respuestas.id as lares, respuestas.descripcion as texto 
     from respuestas , reacciones  where reacciones.id_respuesta=respuestas.id and respuestas.id_pregunta =:id_pregunta 
-    group by respuestas.id order by sum(reacciones.positivos) DESC";
+    group by respuestas.id order by sum(reacciones.megusta) DESC";
     $statement = $dbc->prepare($sql);
     $statement->bindParam(":id_pregunta", $pregunta);  
 
