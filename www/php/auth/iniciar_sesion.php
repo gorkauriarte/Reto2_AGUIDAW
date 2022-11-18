@@ -31,7 +31,7 @@ if($usuario){
         header("location: /php/vistas/home.php");
     }
     else{
-        echo "la contraseña esta mal";
+        echo "La contraseña esta mal";
     }
 
 }else
