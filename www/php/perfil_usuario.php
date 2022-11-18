@@ -51,8 +51,6 @@
             </div>
         </div>
     </main>
-
-
     
     <?php
         require('../componentes/footer.php');
