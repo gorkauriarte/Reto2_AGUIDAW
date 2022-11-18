@@ -10,3 +10,4 @@ RUN apt-get update \
 
 RUN a2enmod rewrite -y zlib1g-dev \
     && rm -rf /var/lib
+
