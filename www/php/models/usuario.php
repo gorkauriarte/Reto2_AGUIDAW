@@ -33,7 +33,7 @@ function insertarUsuario($dbc,array $datos){
 
 }
 
-function actulizarUsuario($dbc, $id,array $datos){
+function actualizarUsuario($dbc, $id, array $datos){
     $sql = "update usuarios set nombre=:nombre,apellido=:apellido,alias=:alias,email=:email,password=:password where id=:id";
     $statement = $dbc->prepare($sql);
 

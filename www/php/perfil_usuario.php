@@ -43,7 +43,7 @@
                         <input type="text" id="email" name="email" value="ameer@gmail.com" readonly>
                     </div>
                     <div class="texto_individual">           
-                        <label for="username">Password: </label>
+                        <label for="username">Alias: </label>
                         <input type="text" id="username" name="username" value="ameerhamza" readonly>
                     </div>
                     <div class="texto_individual">           
@@ -58,7 +58,7 @@
             </form>
             <div class="boton">
                 <button id="btCambiarDatos">Cambiar datos</button>
-                <button type="submit" id="btConfirmarCambiarDatos" class="confirmarCambios">Confirmar cambio de datos</button>
+                <button type="submit" id="btConfirmarCambiarDatos" class="confirmarCambios" >Confirmar cambio de datos</button>
             </div>
         </div>
     </main>
