@@ -48,7 +48,7 @@ function actualizarPregunta($dbc,$idPregunta,$datos)
     $sql = "update preguntas set id_usuario=:idUsuario,titulo=:titulo,descripcion=:descripcion where id=:idPregunta";
     $statement = $dbc->prepare($sql);
 
-    $statement->bindParam(":idUsuario",$usuario);
+    $statement->bindParam(":idUsuario",$_SESSION['id_usuario']);
     $statement->bindParam(":titulo",$datos['titulo']);
     $statement->bindParam(":descripcion",$datos['descripcion']);
     $statement->bindParam(":idPregunta",$idPregunta);
@@ -64,5 +64,17 @@ function buscarPreguntasPorTitulo($dbc,$texto)
     $statement->execute();
 
     return $statement->fetchAll();
+
+}
+function buscarPreguntaPorId($dbc,$idPregunta)
+{
+    $sql = "select * from preguntas where id=:idPregunta";
+    $statement = $dbc->prepare($sql);
+
+    $statement->bindParam(":idPregunta",$idPregunta);
+
+    $statement->execute();
+
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
 
 }
