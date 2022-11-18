@@ -8,6 +8,15 @@ function preguntas($dbc){
     return $statement; // devuelve una coleccion
 }
 
+function todasPreguntasConNumroDeRespuestasYUsuario($dbc){
+    $sql = "select p.titulo,p.descripcion,p.fecha_creacion,p.id_usuario,count(r.id) as answers,u.nombre as usuario from preguntas p left join respuestas r on p.id = r.id_pregunta join usuarios u on p.id_usuario = u.id group by(p.id)";
+    $statement = $dbc->prepare($sql);
+
+    $statement->execute();
+    return $statement; // devuelve una coleccion
+
+}
+
 function preguntasOrdenadoPor($dbc,$column,$order='asc',$limit=15)
 {
     $sql = "select * from preguntas order by $column $order limit $limit";
