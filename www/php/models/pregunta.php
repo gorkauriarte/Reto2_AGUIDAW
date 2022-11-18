@@ -9,7 +9,7 @@ function preguntas($dbc){
 }
 
 function todasPreguntasConNumroDeRespuestasYUsuario($dbc){
-    $sql = "select p.titulo,p.descripcion,p.fecha_creacion,p.id_usuario,count(r.id) as answers,u.nombre as usuario from preguntas p left join respuestas r on p.id = r.id_pregunta join usuarios u on p.id_usuario = u.id group by(p.id)";
+    $sql = "select p.id,p.titulo,p.descripcion,p.fecha_creacion,p.id_usuario,count(r.id) as answers,u.nombre as usuario from preguntas p left join respuestas r on p.id = r.id_pregunta join usuarios u on p.id_usuario = u.id group by(p.id)";
     $statement = $dbc->prepare($sql);
 
     $statement->execute();

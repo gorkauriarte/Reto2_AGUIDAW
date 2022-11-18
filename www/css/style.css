@@ -15,7 +15,7 @@
 }
 .preguntar{
     padding: 1em;
-    background-color: blue;
+    background-color: #2c3968;
     color: white;
     border:0;
     cursor: pointer;
@@ -66,6 +66,14 @@ ul.filtros > li > a {
 div.pregunta{
     margin-left: 2vw;
 }
+.titulo-pregunta{
+    color: #72A0C1;
+    text-decoration: none;
+}
+.titulo-pregunta:hover{
+    color: #6495ED;
+    text-decoration: none;
+}
 .info-pregunta{
     margin-top: 1.5vh;
     display: flex;
@@ -73,18 +81,19 @@ div.pregunta{
 }
 ul.etiquetas{
     display: flex;
-    justify-content: space-around;
+    justify-content: start;
     list-style: none;
 }
 .etiquetas-pregunta{
-    max-width: 60%;
+    min-width: 70%;
+    max-width: 75%;
 }
 .etiqueta-item{
     padding: .5em 1em;
-    border: 1px solid blue;
-    background-color: blue;
-    color: white;
-    margin-right: 1vw;
+    border: 1px solid #B9D9EB;
+    background-color: #B9D9EB;
+    color: #2c3968;
+    margin-right: 0.5vw;
     border-radius: 1em;
 }
 .info-usuario{

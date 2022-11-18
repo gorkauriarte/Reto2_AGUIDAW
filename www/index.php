@@ -2,7 +2,7 @@
 
 require "php/models/pregunta.php";
 require "php/models/usuario.php";
-//require "php/models/etiquetas.php";
+require "php/models/etiqueta.php";
 require "php/basedatos.php";
 
 $preguntas = todasPreguntasConNumroDeRespuestasYUsuario(connect())->fetchAll();
@@ -66,34 +66,41 @@ function cogerPerfil($id_usuario)
                             <div class="cantidad-respuesta">
                                 <h5><?= $pregunta['answers'] ?> respuestas</h5>
                             </div>
-                            <div class="pregunta">
-                                <h4><a href=""><?= $pregunta['titulo'] ?></a></h4>
-                                <p><?= substr_replace($pregunta['descripcion'],"...",300) ?></p>
-                            </div>
-                        </div>
-                        <div class="info-pregunta">
-                            <div class="etiquetas-pregunta">
-                                <ul class="etiquetas">
-                                    <li class="etiqueta-item">php</li>
-                                    <li class="etiqueta-item">css</li>
-                                    <li class="etiqueta-item">html</li>
-                                </ul>
-                            </div>
-                            <div class="info-usuario">
-                                <div class="perfil-img-usuario">
-                                    <?php 
-                                    
-                                        $perfilUsuario = cogerPerfil($pregunta['id_usuario']);
-                                    
-                                    ?>
-                                    <img src="<?= $perfilUsuario->imagen ?? "imagenes/profile.png" ?>" alt="" height="50" width="50">
+                            <div>
+                                <div class="pregunta">
+                                    <h4><a href="#" class="titulo-pregunta"><?= $pregunta['titulo'] ?></a></h4>
+                                    <p><?= substr_replace($pregunta['descripcion'],"...",300) ?></p>
                                 </div>
-                                <div class="nombre-usuario-fecha">
-                                    <h5><?= $perfilUsuario->nombre ?></h5>
-                                    <p><?= $pregunta['fecha_creacion'] ?></p>
-                                </div>
+
+                                <div class="info-pregunta">
+                                    <div class="etiquetas-pregunta">
+                                        <ul class="etiquetas">
+                                            <?php foreach( buscarEtiquetasDeUnaPregunta(connect(),$pregunta['id'])->fetchAll() as $etiqueta): ?>
+                                                <li class="etiqueta-item">
+                                                    <?= $etiqueta['name'] ?>
+                                                </li>
+                                            <?php endforeach; ?>
+                                        </ul>
+                                    </div>
+                                    <div class="info-usuario">
+                                        <div class="perfil-img-usuario">
+                                            <?php 
+                                            
+                                                $perfilUsuario = cogerPerfil($pregunta['id_usuario']);
+                                            
+                                            ?>
+                                            <img src="<?= $perfilUsuario->imagen ?? "imagenes/profile.png" ?>" alt="" height="50" width="50">
+                                        </div>
+                                        <div class="nombre-usuario-fecha">
+                                            <h5><?= $perfilUsuario->nombre ?></h5>
+                                            <p><?= $pregunta['fecha_creacion'] ?></p>
+                                        </div>
+                                    </div>
+                             </div>
                             </div>
+
                         </div>
+
                     
                     </section> 
                 <?php endforeach; ?>  
