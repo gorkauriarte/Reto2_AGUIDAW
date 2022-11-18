@@ -24,3 +24,7 @@ if(!isset($_SESSION['id_usuario']) || !isset($_SESSION['nombre']))
     </p>
 </body>
 </html>
+
+<?php
+unset($_SESSION['error-accesso']);
+?>

@@ -6,14 +6,7 @@ require 'helpers/file_manager.php';
 
 $datos = ["titulo" => "creando una pregunta","descripcion" => "intentando resolver la pregunta"];
 
-//var_dump(preguntaConRespuestas(connect(),6)->fetchAll());
 
- if(isset($_POST['submit']))
- {
-    $result = subirFoto($_FILES['perfil'],'../imagenes/');
-
-    var_dump($result);
- }
 
 
 ?>
