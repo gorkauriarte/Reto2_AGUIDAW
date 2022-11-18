@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.todo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.formulario {
+    display:flex;
+    flex-direction: column;
+    width: 70vw;
+   
+}
+.titulo-h2 {
+    width: 70vw;
+}
+
+.formulario>.titulo {
+    padding: .4em;
+    margin: .4em 0;
+    font-size: 1em;
+    color: black;
+}
+.formulario>.titulo::placeholder {
+    font-size: 1em;
+    color: black;
+}
+.formulario>.descripcion {
+    padding: .4em;
+    margin: .4em .4em .4em  0;
+    font-size: 1em;
+    color: black;
+}
+.formulario>.descripcion::placeholder {
+    font-size: 1em;
+    color: black;
+}

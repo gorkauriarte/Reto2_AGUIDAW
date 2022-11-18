@@ -35,6 +35,7 @@ function cogerPerfil($id_usuario)
 </head>
 <body>
 
+
     <?php
         require('componentes/header.php');
     ?>
