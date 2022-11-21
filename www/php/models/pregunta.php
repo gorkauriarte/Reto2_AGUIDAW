@@ -78,3 +78,59 @@ function buscarPreguntaPorId($dbc,$idPregunta)
     return $statement->fetchAll(PDO::FETCH_ASSOC);
 
 }
+
+
+
+function todasPreguntasConNumroDeRespuestasYUsuario($dbc){
+    $sql = "select p.id,p.titulo,p.descripcion,p.fecha_creacion,p.id_usuario,count(r.id) as answers,u.nombre as usuario from preguntas p left join respuestas r on p.id = r.id_pregunta join usuarios u on p.id_usuario = u.id group by(p.id)";
+    $statement = $dbc->prepare($sql);
+
+    $statement->execute();
+    return $statement; // devuelve una coleccion
+
+}
+
+
+function pregutasFilteradoPorFecha($dbc){
+    $sql = "select p.id,p.titulo,p.descripcion,p.fecha_creacion,p.id_usuario,count(r.id) as answers,u.nombre as usuario from preguntas p left join respuestas r on p.id = r.id_pregunta join usuarios u on p.id_usuario = u.id group by(p.id) order by p.fecha_creacion desc";
+    $statement = $dbc->prepare($sql);
+
+    $statement->execute();
+    return $statement; // devuelve una coleccion
+
+}
+function pregutasFilteradoPorTitulo($dbc){
+    $sql = "select p.id,p.titulo,p.descripcion,p.fecha_creacion,p.id_usuario,count(r.id) as answers,u.nombre as usuario from preguntas p left join respuestas r on p.id = r.id_pregunta join usuarios u on p.id_usuario = u.id group by(p.id) order by p.titulo asc";
+    $statement = $dbc->prepare($sql);
+
+    $statement->execute();
+    return $statement; // devuelve una coleccion
+
+}
+
+function pregutasFilteradoMasRespuestas($dbc){
+    $sql = "select p.id,p.titulo,p.descripcion,p.fecha_creacion,p.id_usuario,count(r.id) as answers,u.nombre as usuario from preguntas p left join respuestas r on p.id = r.id_pregunta join usuarios u on p.id_usuario = u.id group by(p.id) order by answers desc";
+    $statement = $dbc->prepare($sql);
+
+    $statement->execute();
+    return $statement; // devuelve una coleccion
+
+}
+
+function pregutasFilteradoMenosRespuestas($dbc){
+    $sql = "select p.id,p.titulo,p.descripcion,p.fecha_creacion,p.id_usuario,count(r.id) as answers,u.nombre as usuario from preguntas p left join respuestas r on p.id = r.id_pregunta join usuarios u on p.id_usuario = u.id group by(p.id) order by answers asc";
+    $statement = $dbc->prepare($sql);
+
+    $statement->execute();
+    return $statement; // devuelve una coleccion
+
+}
+
+function pregutasBuscadoPorTitulo($dbc,$texto){
+    $sql = "select p.id,p.titulo,p.descripcion,p.fecha_creacion,p.id_usuario,count(r.id) as answers,u.nombre as usuario from preguntas p left join respuestas r on p.id = r.id_pregunta join usuarios u on p.id_usuario = u.id  where p.titulo like '%$texto%' group by(p.id) ";
+    $statement = $dbc->prepare($sql);
+
+    $statement->execute();
+    return $statement; // devuelve una coleccion
+
+}
