@@ -3,6 +3,9 @@ session_start();
 require "basedatos.php";
 require "models/usuario.php";
 
+
+var_dump($_POST);
+
 function vuelveAtras(){
     header("location: /php/crear_perfil.php");
     
@@ -26,18 +29,13 @@ if(!isset($_POST['email']) || $_POST['email'] == "")
     vuelveAtras();
 }
 
-if(!isset($_POST['confirm_password']) || $_POST['confirm_password'] == "")
-{
-    $_SESSION['errors']['password'] = "El campo Password es obligatorio";
-    vuelveAtras();
-}
+
 
 
 $nombre = $_POST['nombre'];
 $apellido = $_POST['apellido'];
 $email = $_POST['email'];
 $alias = $_POST['alias'];
-$_POST['password'] = password_hash($_POST['password'],PASSWORD_BCRYPT);
 
 // borrar imagen en caso de que el usuario tenga una imagen ya.
 if(isset($_POST['imagen']))
@@ -59,7 +57,7 @@ if(isset($_POST['imagen']))
 
 
 
-$usuarioActulizado =  actualizarUsuario($dbc,$_POST);
+$usuarioActulizado =  actualizarUsuario(connect(), 1, $_POST);
 
 if($usuarioActulizado){
     $_SESSION['Correcto'] = "Los datos se han cambiado correctamente";
