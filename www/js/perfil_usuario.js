@@ -1,9 +1,14 @@
 document.getElementById("btCambiarDatos").addEventListener("click", habilitar);
 document.getElementById("btConfirmarCambiarDatos").addEventListener("click", deshabilitar);
-document.getElementById("mostrar_contrasena").addEventListener("click", mostrarContrasena);
+document.getElementById("mostrar_contrasena_actual").addEventListener("click", mostrarContrasenaActual);
+document.getElementById("mostrar_contrasena_nueva").addEventListener("click", mostrarContrasenaNueva);
+document.getElementById("mostrar_contrasena_confirmar").addEventListener("click", mostrarContrasenaConfirmar);
 
 
-function habilitar() {
+function habilitar(event) {
+
+    event.preventDefault();
+
     var nombre = document.getElementById("nombre");
     var apellido = document.getElementById("apellido");
     var email = document.getElementById("email");
@@ -18,16 +23,8 @@ function habilitar() {
     var botonConfirmar = document.getElementById("btConfirmarCambiarDatos");
     botonConfirmar.style.display = "block";
 
-
-
     var archivo = document.getElementById("archivo_imagen");
     archivo.style.display = "block";
-
-    var password = document.getElementById("password");
-    password.style.width = "calc(30vw - 50px)";
-
-    var boton_contrasena = document.getElementById("mostrar_contrasena");
-    boton_contrasena.style.display = "block";
 
 }
 
@@ -58,28 +55,92 @@ function deshabilitar() {
     boton_contrasena.style.display = "none";
 }
 
-function mostrarContrasena() {
-    var password = document.getElementById("password");
-    password.type = "text";
-    password.readOnly = false;
+function mostrarContrasenaActual(event) {
 
-    span = document.getElementById("span-ojo");
+    event.preventDefault();
+
+    var password = document.getElementById("contrasena_actual");
+    password.type = "text";
+
+    span = document.getElementById("span-ojo-actual");
     span.setAttribute("class", "fa fa-eye");
     
-    botonMostrarContrasena = document.getElementById("mostrar_contrasena");
-    botonMostrarContrasena.removeEventListener("click", mostrarContrasena);
-    botonMostrarContrasena.addEventListener("click", ocultarConrasena);
+    boton = document.getElementById("mostrar_contrasena_actual");
+    boton.removeEventListener("click", mostrarContrasenaActual);
+    boton.addEventListener("click", ocultarConrasenaActual);
 }
+function ocultarConrasenaActual(event) {
 
-function ocultarConrasena() {
-    var password = document.getElementById("password");
+    event.preventDefault();
+
+    var password = document.getElementById("contrasena_actual");
     password.type = "password";
-    password.readOnly = true;
 
-    span = document.getElementById("span-ojo");
+    span = document.getElementById("span-ojo-actual");
     span.setAttribute("class", "fa fa-eye-slash icon");
 
-    boton = document.getElementById("mostrar_contrasena");
-    boton.removeEventListener("click", ocultarConrasena);
-    boton.addEventListener("click", mostrarContrasena);
+    boton = document.getElementById("mostrar_contrasena_actual");
+    boton.removeEventListener("click", ocultarConrasenaActual);
+    boton.addEventListener("click", mostrarContrasenaActual);
 }
+
+
+function mostrarContrasenaNueva(event) {
+
+    event.preventDefault();
+
+    var password = document.getElementById("contrasena_nueva");
+    password.type = "text";
+
+    span = document.getElementById("span-ojo-nueva");
+    span.setAttribute("class", "fa fa-eye");
+    
+    boton = document.getElementById("mostrar_contrasena_nueva");
+    boton.removeEventListener("click", mostrarContrasenaNueva);
+    boton.addEventListener("click", ocultarConrasenaNueva);
+}
+function ocultarConrasenaNueva(event) {
+
+    event.preventDefault();
+
+    var password = document.getElementById("contrasena_nueva");
+    password.type = "password";
+
+    span = document.getElementById("span-ojo-nueva");
+    span.setAttribute("class", "fa fa-eye-slash icon");
+
+    boton = document.getElementById("mostrar_contrasena_nueva");
+    boton.removeEventListener("click", ocultarConrasenaNueva);
+    boton.addEventListener("click", mostrarContrasenaNueva);
+}
+
+
+function mostrarContrasenaConfirmar(event) {
+
+    event.preventDefault();
+
+    var password = document.getElementById("contrasena_confirmar");
+    password.type = "text";
+
+    span = document.getElementById("span-ojo-confirmar");
+    span.setAttribute("class", "fa fa-eye");
+    
+    boton = document.getElementById("mostrar_contrasena_confirmar");
+    boton.removeEventListener("click", mostrarContrasenaConfirmar);
+    boton.addEventListener("click", ocultarConrasenaConfirmar);
+}
+function ocultarConrasenaConfirmar(event) {
+
+    event.preventDefault();
+
+    var password = document.getElementById("contrasena_confirmar");
+    password.type = "password";
+
+    span = document.getElementById("span-ojo-confirmar");
+    span.setAttribute("class", "fa fa-eye-slash icon");
+
+    boton = document.getElementById("mostrar_contrasena_confirmar");
+    boton.removeEventListener("click", ocultarConrasenaConfirmar);
+    boton.addEventListener("click", mostrarContrasenaConfirmar);
+}
+

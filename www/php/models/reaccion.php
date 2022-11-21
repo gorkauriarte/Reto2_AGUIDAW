@@ -1,9 +1,7 @@
 <?php
-    function buscarReaccionDeUnaRespuesta($dbc, $idRespuesta) {
-        $sql = "select SUM(megusta), SUM(nomegusta) from reacciones where id_respuesta=:idRespuesta";
+    function buscarReaccionDeUnaRespuesta($dbc) {
+        $sql = "select SUM(megusta), SUM(nomegusta) from reacciones";
         $statement = $dbc->prepare($sql);
-
-        $statement->bindParam(':idRespuesta',$idRespuesta);
 
         $statement->execute();
 
