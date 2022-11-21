@@ -1,14 +1,5 @@
 <?php
 
-<<<<<<< HEAD
-    function etiquetas($dbc) {
-        $sql = "select * from etiquetas";
-        $statement = $dbc->prepare($sql);
-        $statement->execute();
-
-        return $statement; // devuelve una coleccion
-    }
-=======
 function etiquetas($dbc){
     $sql = "select * from etiquetas";
     $statement = $dbc->prepare($sql);
@@ -40,6 +31,25 @@ function buscarPreguntasPorEtiqueta($dbc,$id_etiqueta){
     return $statement; // devuelve una coleccion
 }
 
->>>>>>> dc670645920f6ff41b4519d1ddebc16aa59b9d21
+function crearPreguntaEtiqueta($dbc,$datos)
+{
+    $sql = "insert into preguntas_etiquetas(id_pregunta, id_etiqueta) values(:idPregunta, :idEtiqueta)";
+    $statement = $dbc->prepare($sql);
+
+    $statement->bindParam(':idPregunta',$datos['id_pregunta']);
+    $statement->bindParam(':idEtiqueta',$datos['id_etiqueta']);
+
+    return $statement->execute(); // devuelve true o false
+}
+
+function buscarEtiquetaPorNombre($dbc, $nombre) {
+    $sql = "select id from etiquetas where name=:name";
+    
+    $statement = $dbc->prepare($sql);
+
+    $statement->bindParam(':name',$nombre);
+
+    return $statement; // devuelve una coleccion
+}
 
 ?>

@@ -1,8 +1,27 @@
-document.getElementById("btcrearpregunta").addEventListener("click", implementarpregunta);
+function mostrarEtiquetasSeleccionadas() {
+    var el = document.getElementsByTagName('select')[0];
+    var etiquetas_seleccionadas = getSelectValues(el);   
+    var etiquetas = '';
+    etiquetas_seleccionadas.forEach(item => {
+        etiquetas += `<li class="item-etqueta">${item}</li>`;
+    });
 
-function crearpregunta() {
-    var titulo = document.getElementById("titulo");
-    var descripcion = document.getElementById("contenido");
-   console.log(titulo);
-   console.log(descripcion);
+    document.getElementById("etiquetas_elegidas").innerHTML = `<ul class="lista-etiquetas">${etiquetas} </ul>`;
+   
+    
 }
+function getSelectValues(select) {
+    var seleccionados = [];
+    var options = select && select.options;
+    var opt;
+  
+    for (var i=0, iLen=options.length; i<iLen; i++) {
+      opt = options[i];
+      if (opt.selected) {
+        seleccionados.push(opt.text);
+      }
+
+    }
+    document.getElementById("lista_etiqueta").value = seleccionados;
+    return seleccionados;
+  }

@@ -20,12 +20,15 @@
         <div class="titulo-h2">
             <h2> Crea tu propia pregunta </h2>
         </div>
-        <form>
+        <form method="post">
             <div class="formulario">
                 <input type="text" id="titulo" class="titulo" placeholder="Escribe el titulo" class="titulo">
                 <textarea id="descripcion" class="descripcion" placeholder="Escribe la descripcion" class="descripcion"></textarea>
                 <input type="file" id="archivo_pregunta" class="archivo_pregunta">
-                <select name="etiqueta" id="etiqueta" class="etiqueta" multiple>
+                <input type="hidden" id="lista_etiqueta">
+                <p id="etiquetas_elegidas" class="etiquetas_elegidas"></p>
+
+                <select name="etiqueta" id="etiqueta" class="etiqueta" multiple onchange=mostrarEtiquetasSeleccionadas()>
                     <?php 
                         require 'basedatos.php';
                         require 'models/etiqueta.php';
@@ -50,6 +53,8 @@
     <?php
         require "../componentes/footer.php";
     ?>
+
+<script src="../js/crear_pregunta.js"></script>
 
 </body>
 </html>

@@ -43,6 +43,23 @@
 .formulario>.archivo_pregunta {
     margin: .4em 0;
 }
+.lista-etiquetas {
+    list-style: none;
+    display: flex;
+}
+.item-etqueta {
+    background-color: rgb(0, 113, 183);
+    font-size: .8em;
+    border-radius: 10em 10em;
+    color: white;
+    margin: .4em;
+    padding: .5em;
+    width: 10em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
 .formulario>.etiqueta {
     margin: .4em 0;
     width: 30%;

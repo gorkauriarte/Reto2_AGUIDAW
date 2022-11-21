@@ -67,6 +67,9 @@ if(isset($_SESSION['id_usuario']) || (isset($_SESSION['loggedin'])) && $_SESSION
             </form>
     </div>
 </div>
+
+
+
 <script>
     console.log("working");
 </script>
@@ -75,7 +78,7 @@ if(isset($_SESSION['id_usuario']) || (isset($_SESSION['loggedin'])) && $_SESSION
 
 <?php 
 
-unset($_SESSION['errors']);
-unset($_SESSION['old']);
+    unset($_SESSION['errors']);
+    unset($_SESSION['old']);
 
 ?>
