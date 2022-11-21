@@ -6,7 +6,8 @@ require 'helpers/file_manager.php';
 
 $datos = ["titulo" => "creando una pregunta","descripcion" => "intentando resolver la pregunta"];
 
-
+var_dump(todasPreguntasConNumroDeRespuestasYUsuario(connect()));
+exit;
 
 
 ?>
