@@ -90,20 +90,15 @@ function paginatePreguntas(){
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<<<<<<< HEAD
-    <h2>hello</h2>
-    <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-        Earum consectetur explicabo atque reprehenderit omnis fuga nulla aliquam quo tempore quae nam neque, expedita, 
-        exercitationem, magnam recusandae doloribus ducimus cumque provident?
-    </p>
-    
-=======
+
 
 
     <?php
         require('componentes/header.php');
     ?>
+   
+    <main>
+
 
     <main class="contenido">
         <aside class="menu-izq"></aside>
@@ -186,12 +181,11 @@ function paginatePreguntas(){
             </div>
         </div>
         <div class="menu-der"></div>
+
     </main>
 
     <?php
         require('componentes/footer.php');
     ?>
-
->>>>>>> 5c0e981a417088f809157345a787c5b8094e4e2a
 </body>
 </html>

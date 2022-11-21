@@ -22,7 +22,7 @@
             <div class="titulo">
                 <h1> Datos del usuario </h1>
             </div>
-            <form>
+            <form action="actualizar_perfil.php" method="post">
                 <div class="datos">
                     <div class="img">
                         <img src="../img/bg2.jpg" alt="La imagen no se ha encontrado"/>
@@ -43,13 +43,14 @@
                         </div>
                         <div class="texto_individual">           
                             <label for="username">Username: </label>
-                            <input type="text" id="username" name="username" value="ameerhamza" readonly>
+                            <input type="text" id="username" name="alias" value="ameerhamza" readonly>
                         </div>
                     </div>
                 </div>
                 <div class="boton">
                     <button id="btCambiarDatos">Cambiar datos</button>
-                    <button type="submit" id="btConfirmarCambiarDatos" class="confirmarCambios">Guardar datos</button>
+                    <button type="submit" name="act_usuario" id="btConfirmarCambiarDatos" class="confirmarCambios">Guardar datos</button>
+                
                 </div> 
             </form>
         </div>
@@ -59,7 +60,7 @@
             <div class="titulo">
                 <h1> Cambiar contraseña </h1>
             </div>
-            <form>
+            <form action="actualizar_perfil.php" method="post"></form>
                 <div class="datos">
                     
                     <div class="texto">
@@ -87,13 +88,11 @@
                     </div>
                 </div>
                 <div class="boton">
-                    <button type="submit" id="btCambiarContraseña">Cambiar contraseña</button>
+                    <button type="submit" name="act_password" id="btCambiarContraseña">Cambiar contraseña</button>
                 </div> 
             </form>
         </div>
     </main>
-
-
     
     <?php
         require('../componentes/footer.php');

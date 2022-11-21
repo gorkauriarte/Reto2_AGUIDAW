@@ -8,9 +8,10 @@
          <i class="fas fa-bars"></i>
          </label>
          <ul>
-            <li><a class="active" href="#">Home</a></li>
-            <li><a href="#">Nosotros</a></li>
-            <li><a href="componentes/help.php">Help</a></li>
-            <li><a href="#">Sign In/Up</a></li>
+            <li><a href="../index.php">Home</a></li>
+            <li><a href="../php/nosotros.php">Nosotros</a></li>
+            <li><a href="../componentes/help.php">Help</a></li>
+            <li><a href="../php/iniciosesion.php">Sign In</a></li>
+            <li><a href="../php/crear_cuenta.php">Sign Up</a></li>
          </ul>
       </nav>

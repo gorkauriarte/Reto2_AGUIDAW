@@ -8,7 +8,7 @@
     font-family: "Poppins", sans-serif;
 }
 
-body {
+main {
     display: flex;
     padding: 0 10px;
     min-height: 100vh;
@@ -30,7 +30,7 @@ body {
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
 }
 
-.formulario header {
+.formulario h2 {
     font-size: 22px;
     font-weight: 600;
     padding: 20px 30px;
@@ -150,7 +150,7 @@ form .button-area {
 }
 
 @media (max-width: 600px) {
-    .formulario header {
+    .formulario h2 {
         text-align: center;
     }
     .formulario form {
