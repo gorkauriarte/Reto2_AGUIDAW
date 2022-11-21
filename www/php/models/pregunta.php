@@ -81,8 +81,8 @@ function buscarPreguntaPorId($dbc,$idPregunta)
 
 
 
-function todasPreguntasConNumroDeRespuestasYUsuario($dbc){
-    $sql = "select p.id,p.titulo,p.descripcion,p.fecha_creacion,p.id_usuario,count(r.id) as answers,u.nombre as usuario from preguntas p left join respuestas r on p.id = r.id_pregunta join usuarios u on p.id_usuario = u.id group by(p.id)";
+function todasPreguntasConNumroDeRespuestasYUsuario($dbc,$desde,$hasta){
+    $sql = "select p.id,p.titulo,p.descripcion,p.fecha_creacion,p.id_usuario,count(r.id) as answers,u.nombre as usuario from preguntas p left join respuestas r on p.id = r.id_pregunta join usuarios u on p.id_usuario = u.id group by(p.id) limit $desde,$hasta";
     $statement = $dbc->prepare($sql);
 
     $statement->execute();
