@@ -24,35 +24,19 @@ body {
     padding: 40px;
 }
 
-.contenedor-form .palanca {
-    position: absolute;
-    top: 7px;
-    right: 7px;
-    width: 100px;
-    height: 30px;
-    font-size: 12px;
-    line-height: 25px;
-    text-align: center;
-    border-top: 2px solid #1b3dff;
-    border-bottom: 2px solid #0044ff;
-    cursor: pointer;
-    transition: all .5s ease;
-}
-
-.contenedor-form .palanca:hover {
-    border-top: 2px solid #0075d9;
-    border-bottom: 2px solid #0075d9;
-}
-
-.contenedor-form .palanca span {
-    letter-spacing: 1px;
-}
-
 .contenedor-form h2 {
     margin: 0 0 28px 0;
     font-size: 20px;
     font-weight: 400;
     line-height: 1;
+}
+
+.fieldset{
+    margin: 0 0 20px 0;
+}
+
+.mensaje-error{
+    color:red;
 }
 
 .contenedor-form input[type="text"],
@@ -62,7 +46,7 @@ body {
     display: block;
     width: 100%;
     padding: 10px 15px;
-    margin: 0 0 20px 0;
+   
     background: rgba(0, 0, 0, .5);
     color: #fff;
     border: none;
@@ -115,7 +99,6 @@ body {
 }
 
 .contenedor-form .formulario {
-    display: none;
     padding: 40px;
 }
 
