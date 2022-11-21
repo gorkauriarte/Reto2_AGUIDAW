@@ -26,18 +26,17 @@ function borrarPregunta($dbc,$id)
     return $statement->execute(); // devuelve true o false
 }
 
-function crearPregunta($dbc,$datos)
+function crearPregunta($dbc,$usuario,$datos)
 {
     $sql = "insert into preguntas(id_usuario,titulo,descripcion,imagen) values(:usuario,:titulo,:descripcion,:imagen)";
     $statement = $dbc->prepare($sql);
-    $usuario = 2;
-    $imgPath = "/images";
+
    
     //$statement->bindParam(':usuario',$_SESSION['id_usuario']);
     $statement->bindParam(':usuario',$usuario);
     $statement->bindParam(':titulo',$datos['titulo']);
     $statement->bindParam(':descripcion',$datos['descripcion']);
-    $statement->bindParam(':imagen',$imgPath);
+    $statement->bindParam(':imagen',$$datos["imagen"]);
 
     return $statement->execute(); // devuelve true o false
 }
@@ -81,8 +80,8 @@ function buscarPreguntaPorId($dbc,$idPregunta)
 
 
 
-function todasPreguntasConNumroDeRespuestasYUsuario($dbc){
-    $sql = "select p.id,p.titulo,p.descripcion,p.fecha_creacion,p.id_usuario,count(r.id) as answers,u.nombre as usuario from preguntas p left join respuestas r on p.id = r.id_pregunta join usuarios u on p.id_usuario = u.id group by(p.id)";
+function todasPreguntasConNumroDeRespuestasYUsuario($dbc,$desde,$hasta){
+    $sql = "select p.id,p.titulo,p.descripcion,p.fecha_creacion,p.id_usuario,count(r.id) as answers,u.nombre as usuario from preguntas p left join respuestas r on p.id = r.id_pregunta join usuarios u on p.id_usuario = u.id group by(p.id) limit $desde,$hasta";
     $statement = $dbc->prepare($sql);
 
     $statement->execute();
