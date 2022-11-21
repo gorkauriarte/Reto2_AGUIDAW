@@ -6,7 +6,9 @@ require "php/models/etiqueta.php";
 require "php/basedatos.php";
 
 $preguntas = [];
-$cantidadPregntas = 0;
+$cantidadPreguntas = 0;
+
+$resultadosCadaPagina = 10;
 
 if(isset($_GET['buscar']))
 {
@@ -14,32 +16,47 @@ if(isset($_GET['buscar']))
     $titulo = $_GET['buscar_titulo'];
     $preguntas = pregutasBuscadoPorTitulo(connect(),$titulo)->fetchAll();
 
-    $cantidadPregntas = count($preguntas);
+    $cantidadPreguntas = count($preguntas);
 }
 
 else if(isset($_GET['por_fecha']))
 {
     $preguntas = pregutasFilteradoPorFecha(connect())->fetchAll();
-    $cantidadPregntas = count($preguntas);
+    $cantidadPreguntas = count($preguntas);
 }
 else if(isset($_GET['por_titulo']))
 {
     $preguntas = pregutasFilteradoPorTitulo(connect())->fetchAll();
-    $cantidadPregntas = count($preguntas);
+    $cantidadPreguntas = count($preguntas);
 }
 else if(isset($_GET['mas_respuestas']))
 {
     $preguntas = pregutasFilteradoMasRespuestas(connect())->fetchAll();
-    $cantidadPregntas = count($preguntas);
+    $cantidadPreguntas = count($preguntas);
 }
 else if(isset($_GET['menor_respuestas']))
 {
     $preguntas = pregutasFilteradoMenosRespuestas(connect())->fetchAll();
-    $cantidadPregntas = count($preguntas);
+    $cantidadPreguntas = count($preguntas);
 }
 else{
-    $preguntas = todasPreguntasConNumroDeRespuestasYUsuario(connect())->fetchAll();
-    $cantidadPregntas = count($preguntas);
+
+    if(!isset($_GET['page']))
+    {
+        $page = 1;
+    }
+    else{
+        $page = $_GET['page'];
+
+    }
+
+    $desde = ($page - 1) * 10;
+    $hasta = 10;
+
+    $todasPreguntas = preguntas(connect())->fetchAll();
+
+    $preguntas = todasPreguntasConNumroDeRespuestasYUsuario(connect(),$desde,$hasta)->fetchAll();
+    $cantidadPreguntas = count($todasPreguntas);
 }
 
 
@@ -47,6 +64,10 @@ function cogerPerfil($id_usuario)
 {
     $usuario = buscarUsuarioPorId(connect(),$id_usuario);
     return $usuario;
+}
+
+function paginatePreguntas(){
+
 }
 
 
@@ -90,7 +111,7 @@ function cogerPerfil($id_usuario)
                 </div>
             </section>
             <section class="seccion-filtros">
-                <h4><?= $cantidadPregntas ?> preguntas</h4>
+                <h4><?= $cantidadPreguntas ?> preguntas</h4>
                 <div class="filtros-pregunta">
                     <ul class="filtros">
                         <li><a href="index.php?por_fecha=true">Por fecha</a></li>
@@ -101,7 +122,7 @@ function cogerPerfil($id_usuario)
                 </div>
             </section> 
             <div class="contenido-preguntas">
-                <?php if($cantidadPregntas > 0): ?>
+                <?php if($cantidadPreguntas > 0): ?>
                 <?php foreach($preguntas as $pregunta): ?>
                     <section class="todas-preguntas">
                         <div class="detalle-pregunta">  
@@ -146,6 +167,13 @@ function cogerPerfil($id_usuario)
                 <?php else: ?>
                     <h4>No hay preguntas</h4>
                 <?php endif; ?> 
+            </div>
+            <div class="paginas">
+                <ul class="enlace-paginas">
+                    <?php for($i=1;$i <= ceil($cantidadPreguntas / $resultadosCadaPagina); $i++): ?>
+                        <a class="enlace-pagina" href="index.php?page=<?= $i ?>"><li class="pagina"><?= $i ?></li></a>
+                    <?php endfor; ?>
+                </ul>
             </div>
         </div>
         <div class="menu-der"></div>

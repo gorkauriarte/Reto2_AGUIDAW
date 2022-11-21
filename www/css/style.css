@@ -132,3 +132,29 @@ ul.etiquetas{
     border: 1px solid orange;
 
 }
+div.paginas{
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5vh;
+}
+.enlace-paginas{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+li.pagina{
+    list-style: none;
+    margin-right: 1.5em;
+   padding: .8em;
+    background-color: #2c3968;
+    color: white;
+
+}
+.enlace-pagina{
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+}
