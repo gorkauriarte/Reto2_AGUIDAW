@@ -34,7 +34,7 @@ function insertarUsuario($dbc,array $datos){
 }
 
 function actualizarUsuario($dbc, $id, array $datos){
-    $sql = "update usuarios set nombre=:nombre,apellido=:apellido,alias=:alias,email=:email,password=:password where id=:id";
+    $sql = "update usuarios set nombre=:nombre,apellido=:apellido,alias=:alias,email=:email,password=:password, imagen=:imagen where id=:id";
     $statement = $dbc->prepare($sql);
 
     $statement->bindParam(":nombre", $datos['nombre']);
@@ -42,6 +42,7 @@ function actualizarUsuario($dbc, $id, array $datos){
     $statement->bindParam(":alias", $datos['alias']);
     $statement->bindParam(":email", $datos['email']);
     $statement->bindParam(":password", $datos['password']);
+    $statement->bindParam(":imagen", $datos['imagen']);
     $statement->bindParam(":id", $id);
 
     return $statement->execute();

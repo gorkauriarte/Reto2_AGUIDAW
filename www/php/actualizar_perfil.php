@@ -49,7 +49,7 @@ if(isset($_POST['imagen']))
         $subir = subirFoto($_POST['perfil'],"../../imagenes/");
         if($subir['estado'] == 1)
         {
-            $_POST['imagen'] = $result['ruta'];
+            $_POST['imagen'] = $subir['ruta'];
         }
     }
 
