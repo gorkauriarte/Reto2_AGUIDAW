@@ -1,5 +1,14 @@
 <?php
 
+<<<<<<< HEAD
+    function etiquetas($dbc) {
+        $sql = "select * from etiquetas";
+        $statement = $dbc->prepare($sql);
+        $statement->execute();
+
+        return $statement; // devuelve una coleccion
+    }
+=======
 function etiquetas($dbc){
     $sql = "select * from etiquetas";
     $statement = $dbc->prepare($sql);
@@ -31,5 +40,6 @@ function buscarPreguntasPorEtiqueta($dbc,$id_etiqueta){
     return $statement; // devuelve una coleccion
 }
 
+>>>>>>> dc670645920f6ff41b4519d1ddebc16aa59b9d21
 
 ?>

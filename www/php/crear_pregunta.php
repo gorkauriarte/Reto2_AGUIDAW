@@ -62,12 +62,31 @@
         <div class="titulo-h2">
             <h2> Crea tu propia pregunta </h2>
         </div>
-        <div class="formulario">
-            <input type="text" id="titulo" class="titulo" placeholder="Escribe el titulo" class="titulo">
-            <input type="text" id="descripcion" class="descripcion" placeholder="Escribe la descripcion" class="descripcion">
-            <input type="file" id="archivo_pregunta" class="archivo_pregunta">
-            <button id="crear_pregunta"> Crear pregunta </button>
-        </div>
+        <form>
+            <div class="formulario">
+                <input type="text" id="titulo" class="titulo" placeholder="Escribe el titulo" class="titulo">
+                <textarea id="descripcion" class="descripcion" placeholder="Escribe la descripcion" class="descripcion"></textarea>
+                <input type="file" id="archivo_pregunta" class="archivo_pregunta">
+                <select name="etiqueta" id="etiqueta" class="etiqueta" multiple>
+                    <?php 
+                        require 'basedatos.php';
+                        require 'models/etiqueta.php';
+                        $dbc = connect();
+                        $statement = etiquetas($dbc);
+                        foreach($statement as $row) { 
+                    ?>
+                        <option> <?= $row["name"] ?> </option>
+                    <?php 
+                        } 
+                        close($dbc);
+                    ?>
+                </select>
+
+                <div class="boton">
+                    <button id="crear_pregunta" > Crear pregunta </button>
+                </div>
+            </div>
+        </form>
     </main>
 
     <?php
