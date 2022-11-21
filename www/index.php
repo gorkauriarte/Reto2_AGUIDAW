@@ -16,6 +16,7 @@
 </head>
 <body>
 
+
     <?php
         require('componentes/header.php');
     ?>
@@ -25,5 +26,6 @@
     <?php
         require('componentes/footer.php');
     ?>
+
 </body>
 </html>
