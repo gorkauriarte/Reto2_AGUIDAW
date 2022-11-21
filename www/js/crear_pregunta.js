@@ -1,6 +1,8 @@
+document.getElementById("btcrearpregunta").addEventListener("click", implementarpregunta);
 
-function mostrarEscogidoDelSelect() {
-    var combo = document.getElementById("producto");
-    var selected = combo.options[combo.selectedIndex].text;
-    alert(selected);
+function crearpregunta() {
+    var titulo = document.getElementById("titulo");
+    var descripcion = document.getElementById("contenido");
+   console.log(titulo);
+   console.log(descripcion);
 }
