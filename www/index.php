@@ -92,9 +92,13 @@ function paginatePreguntas(){
 <body>
 
 
+
     <?php
         require('componentes/header.php');
     ?>
+   
+    <main>
+
 
     <main class="contenido">
         <aside class="menu-izq"></aside>
@@ -177,11 +181,11 @@ function paginatePreguntas(){
             </div>
         </div>
         <div class="menu-der"></div>
+
     </main>
 
     <?php
         require('componentes/footer.php');
     ?>
-
 </body>
 </html>

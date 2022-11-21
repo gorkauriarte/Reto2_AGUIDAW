@@ -7,10 +7,16 @@
   <link rel="stylesheet" href="../css/help.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/footer.css">
 </head>
 <body>
+  <?php
+  require ('header.php');
+  ?>
+  <main>
   <div class="formulario">
-    <header>Mandanos un Mensaje de Ayuda</header>
+    <h2>Mandanos un Mensaje de Ayuda</h2>
 
     <!--FORM ACTION-->
     <form action="#">
@@ -56,6 +62,11 @@
       </div>
     </form>
   </div>
+  </main>
+  <?php
+  require ('footer.php');
+  ?>
+
   <script src="../js/help.js"></script>
 </body>
 </html>

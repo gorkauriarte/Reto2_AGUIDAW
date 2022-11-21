@@ -10,14 +10,15 @@ main {
     min-height: calc(100vh - 73px - 30vh);
 }
 
+
 /*Pie de Pagina*/
 
 .pie-pagina {
     width: 100vw;
     height: 30vh;
     background-color: #000000;
-    
 }
+
 .pie-pagina .grupo-1 {
     height: 80%;
     display: flex;
@@ -29,12 +30,14 @@ main {
     padding: 0 2vw;
     width: 20vw;
 }
+
 .pie-pagina .grupo-1 .box h2 {
     color: #fff;
     margin-bottom: 2vh;
     font-size: 1.2em;
     padding-left: 2vw;
 }
+
 .pie-pagina .grupo-1 .box p {
     padding: 0 2vw;
     color: #efefef;
@@ -45,6 +48,7 @@ main {
 .pie-pagina .grupo-1 .red-social {
     display: flex;
 }
+
 .pie-pagina .grupo-1 .red-social a {
     padding: 0 2vw;
     text-decoration: none;
@@ -73,11 +77,9 @@ main {
 }
 
 @media screen and (max-width:768px) {
-    
     .pie-pagina .grupo-1 figure a img {
-        display:none !important;
+        display: none !important;
     }
-
     .pie-pagina .grupo-1 {
         height: 80%;
         display: flex;
@@ -86,8 +88,6 @@ main {
         align-items: center;
         overflow: hidden;
     }
-
-
     .pie-pagina .grupo-1 .box p {
         font-size: .8em;
     }

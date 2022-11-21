@@ -31,5 +31,25 @@ function buscarPreguntasPorEtiqueta($dbc,$id_etiqueta){
     return $statement; // devuelve una coleccion
 }
 
+function crearPreguntaEtiqueta($dbc,$datos)
+{
+    $sql = "insert into preguntas_etiquetas(id_pregunta, id_etiqueta) values(:idPregunta, :idEtiqueta)";
+    $statement = $dbc->prepare($sql);
+
+    $statement->bindParam(':idPregunta',$datos['id_pregunta']);
+    $statement->bindParam(':idEtiqueta',$datos['id_etiqueta']);
+
+    return $statement->execute(); // devuelve true o false
+}
+
+function buscarEtiquetaPorNombre($dbc, $nombre) {
+    $sql = "select id from etiquetas where name=:name";
+    
+    $statement = $dbc->prepare($sql);
+
+    $statement->bindParam(':name',$nombre);
+
+    return $statement; // devuelve una coleccion
+}
 
 ?>
