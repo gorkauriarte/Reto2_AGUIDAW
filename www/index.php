@@ -132,7 +132,7 @@ function paginatePreguntas(){
                             <div>
                                 <div class="pregunta">
 
-                                    <h4><a href="#" class="titulo-pregunta"><?= $pregunta['titulo'] ?></a></h4>
+                                    <h4><a href="php/detalle_pregunta.php?pregunta=<?= $pregunta['id'] ?>" class="titulo-pregunta"><?= $pregunta['titulo'] ?></a></h4>
                                     <p><?= substr_replace($pregunta['descripcion'],"...",300) ?></p>
 
 
