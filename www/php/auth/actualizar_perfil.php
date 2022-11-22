@@ -1,13 +1,13 @@
 <?php
 session_start();
-require "basedatos.php";
-require "models/usuario.php";
+require "../basedatos.php";
+require "../models/usuario.php";
 
 
 var_dump($_POST);
 
 function vuelveAtras(){
-    header("location: /php/crear_perfil.php");
+    header("location:../perfil_usuario.php");
     
 }
 

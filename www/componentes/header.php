@@ -12,9 +12,11 @@
             <li><a class="color" href="../php/nosotros.php">Nosotros</a></li>
             <li><a class="color" href="../componentes/help.php">Help</a></li>
             <?php if(isset($_SESSION['loggedin']) || isset($_SESSION['id_usuario'])): ?>
-               
+               <li><a class="color" href="#">Favoritos</a></li>
+               <li><a class="color" href="../php/auth/logout.php">Logout</a></li>
                <li class="perfil">
            <a href="../php/perfil_usuario.php"><img src="../img/top.jpeg" alt="Error_imagen"></a></li>
+           
 
             <?php else: ?>
 

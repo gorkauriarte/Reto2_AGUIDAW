@@ -7,9 +7,7 @@ if(isset($_SESSION['id_usuario']) || (isset($_SESSION['loggedin'])) && $_SESSION
     header("location: vistas/home.php");
 }
 
-
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 

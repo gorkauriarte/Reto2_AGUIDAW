@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +19,7 @@
 <body>
     
     <?php
-        require('../componentes/heder_iniciada.php');
+        require('../componentes/header.php');
     ?>
 
     <main>
