@@ -1,7 +1,7 @@
 
     <nav>
          <div class="logo">
-            <img src="../img/Stack_Overflow_icon.svg.png" alt="Error en la imagen">
+           <a href="../index.php"><img src="../img/Stack_Overflow_icon.svg.png" alt="Error en la imagen"></a>
          </div>
          <input type="checkbox" id="click">
          <label for="click" class="menu-btn">
