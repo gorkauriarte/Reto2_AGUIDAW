@@ -13,7 +13,7 @@
 <body>
     
     <?php
-        require('../componentes/header.php');
+        require('../componentes/heder_iniciada.php');
     ?>
 
     <main>

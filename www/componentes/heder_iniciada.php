@@ -11,7 +11,8 @@
             <li><a class="color" href="../index.php">Home</a></li>
             <li><a class="color" href="../php/nosotros.php">Nosotros</a></li>
             <li><a class="color" href="../componentes/help.php">Help</a></li>
-            <li><a class="color" href="../php/iniciosesion.php">Sign In</a></li>
-            <li><a class="color" href="../php/crear_cuenta.php">Sign Up</a></li>
+            <li class="perfil">
+           <a href="../php/perfil_usuario.php"><img src="../img/top.jpeg" alt="Error_imagen"></a></li>
          </ul>
+         
       </nav>
