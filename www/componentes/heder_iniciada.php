@@ -1,4 +1,13 @@
+<?php
 
+if(isset($_SESSION['id_usuario'])){
+   if((time() - $_SESSION['time_start_login']) > 3600){
+      header("location: .php");
+  } else {
+      $_SESSION['time_start_login'] = time();
+}
+
+?>
     <nav>
          <div class="logo">
            <a href="../index.php"><img src="../img/Stack_Overflow_icon.svg.png" alt="Error en la imagen"></a>
