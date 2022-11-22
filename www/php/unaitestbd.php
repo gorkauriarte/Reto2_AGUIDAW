@@ -9,35 +9,30 @@
 //  prueba de buscar respuesta por id y votos de cada uno
 function preguntar($dbc){
     $pregunta4=1;
-    $prueba4= buscarrespuestasporid($dbc,$pregunta4);
-    if (!$prueba4) {
+    $preguntas= buscarRespuestasPorVotos($dbc,$pregunta4);
+    if (!$preguntas) {
     print "No existen respuestas a esa pregunta.";
     }
     else {
-    foreach ($prueba4 as $prueba) {
-        $unarespuesta=buscarReaccionDeUnaRespuesta($dbc,$prueba["id"]);
-        if (!isset($unarespuesta[0]["SUM(megusta)"])) {
-            $unarespuesta[0]["SUM(megusta)"]=0;
-        }
-        if (!isset($unarespuesta["SUM(nomegusta)"])) {
-            $unarespuesta[0]["SUM(nomegusta)"]=0;
-        }
-        echo '<div class="respuesta">';
-        echo '<div class="respuesta_explicacion">';
-        echo '<p>' . $prueba["descripcion"] . '</p>';
-        echo '<img src="../img/bg2.jpg">'; // !!! poner '. $prueba["imagen"] .'cuando haya imagenes en src
-        echo '</div>';
-        echo '<div class="reaccion">';
-        echo '<button id="like"><i class="fa fa-thumbs-up"></i></button> ';
-        echo '<p class="like">'. $unarespuesta[0]["SUM(megusta)"] .'</p> ';
-        echo '<button id="dislike"><i class="fa fa-thumbs-down"></i></button> ';
-        echo '<p class="dislike">'.$unarespuesta[0]["SUM(nomegusta)"].'</p>';
-        echo '</div>';
-        echo '<div class="usuario_respuesta">';
-        echo '<img src="../img/aeropspace_shutterstock_1048379746.jpg">'; // !!! poner '. $prueba["imagen"] .'cuando haya imagenes  en src  
-        echo '<p>brukiñigo</p>';
-        echo '</div>';
-        echo '</div>';
+    foreach ($preguntas as $respuesta) {
+        ?>
+        <div class="respuesta" value='<?=$respuesta["id"]?>'>
+            <div class="respuesta_explicacion">
+                <p><?=$respuesta["descripcion"]?></p>
+                <img src="<?=$respuesta["imagen"]?>">
+            </div>
+            <div class="reaccion">
+                <button class="blike" value="<?=$respuesta["id"]?>"><i class="fa fa-thumbs-up"></i></button> 
+                <p class="like"><?=$respuesta["megusta"]?> </p> 
+                <button class="bdislike" value="<?=$respuesta["id"]?>"><i class="fa fa-thumbs-down"></i></button> 
+                <p class="dislike"><?=$respuesta["nomegusta"]?> </p>
+            </div>
+            <div class="usuario_respuesta">
+                <img src="../img/aeropspace_shutterstock_1048379746.jpg"> 
+                <p>brukiñigo</p>
+            </div>
+        </div>
+        <?php
         }
     }
 }
@@ -100,50 +95,50 @@ function listapreguntas($dbc,$id){
     
 }
 
-            
-               
-            
-            
 
 
 
+//  prueba de cambio de votos
 
-
-
-
-
-
-
-
-
-
-
-
-//  prueba de buscar respuesta por votos
-function vervotos($dbc){
-$pregunta5=2;
-$prueba5= buscarrespuestasporvotos($dbc,$pregunta5);
-
-echo "<table>";
-echo "<tr>";
-echo "<th>votos</th>";
-echo "<th>id</th>";
-echo "<th>respuesta</th>";
-echo "</tr>";
-foreach ($prueba5 as $prueba) {
-    echo "<tr>";
-    echo "<td>" . $prueba["votos"] . "</td>";
-    echo "<td>" . $prueba["lares"] . "</td>";
-    echo "<td>" . $prueba["texto"] . "</td>";
-    echo "</tr>";
-}
-echo "</table>";
-}
-if (isset($_POST['cosa'])) {
-    pruebafetch($dbc);
-    print_r($_POST);
-}
-function pruebafetch($dbc){
-    return insertarrespuesta($dbc,$_POST);
-}
-?>
+if (isset($_POST['cosa']) ) {
+    switch ($_POST['cosa']) {
+     case 'si':
+         insertar($dbc);
+         break;
+     case 'sintomaplus':
+         subevoto($dbc);
+     break;
+     case 'sintomaminus':
+         bajavoto($dbc);
+     break;
+    }
+     
+ }
+ 
+ function subevoto ($dbc){
+    
+     $datos=['respuesta' => $_POST['id'],'usuario' => 1];
+     $buscasubida=buscarReaccionDeUnaRespuestaPositivaDeUnUsuario($dbc,$datos['respuesta'],$datos['usuario']);
+ 
+     $buscabajada=buscarReaccionDeUnaRespuestaNegativaDeUnUsuario($dbc,$datos['respuesta'],$datos['usuario']);
+    if($buscasubida==0){
+         if ($buscabajada!=0) 
+             borrarReaccionNegativa($dbc,$datos);
+         insertarNuevaReaccionPositiva($dbc,$datos);
+     }
+    else 
+        borrarReaccionPositiva($dbc,$datos); 
+ }
+ function bajavoto ($dbc){
+     $datos=['respuesta' => $_POST['id'],'usuario' => 1];
+     $buscasubida=buscarReaccionDeUnaRespuestaPositivaDeUnUsuario($dbc,$datos['respuesta'],$datos['usuario']);
+     $buscabajada=buscarReaccionDeUnaRespuestaNegativaDeUnUsuario($dbc,$datos['respuesta'],$datos['usuario']);
+    if($buscabajada==0){
+         if ($buscasubida!=0) 
+             borrarReaccionPositiva($dbc,$datos);
+         insertarNuevaReaccionNegativa($dbc,$datos);  
+     }
+    else 
+        borrarReaccionNegativa($dbc,$datos);
+ }
+ ?>

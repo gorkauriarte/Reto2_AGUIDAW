@@ -1,12 +1,7 @@
 <?php
-<<<<<<< HEAD
-function insertarrespuesta($dbc,array $datos){
-    $sql = "insert into respuestas(id_pregunta,descripcion,imagen) values(:id_pregunta,:descripcion,:imagen)";
-=======
 
-function insertarrespuesta($dbc,array $datos){
+function insertarRespuesta($dbc,array $datos){
     $sql = "insert into respuestas(id_pregunta,id_usuario,descripcion,imagen) values(:id_pregunta,'0',:descripcion,:imagen)";
->>>>>>> 5c0e981a417088f809157345a787c5b8094e4e2a
     $statement = $dbc->prepare($sql);
 
     $statement->bindParam(":id_pregunta", $datos['id_pregunta']);    
@@ -16,7 +11,7 @@ function insertarrespuesta($dbc,array $datos){
     return $statement->execute();
 
 }
-function cambiarrespuesta($dbc,array $datos){
+function cambiarRespuesta($dbc,array $datos){
     $sql = "update respuestas set descripcion=:descripcion, imagen=:imagen where id=:id ";
     $statement = $dbc->prepare($sql);
 
@@ -26,19 +21,10 @@ function cambiarrespuesta($dbc,array $datos){
     
     return $statement->execute();
 }
-function borrarrespuesta($dbc,$id){
+function borrarRespuesta($dbc,$id){
     $sql = "delete from respuestas  where id=:id ";
     $statement = $dbc->prepare($sql);
     return  $statement->execute(['id' => $id]);
-}
-function buscarrespuestasporid($dbc,$pregunta){
-    $sql = "select * from respuestas where id_pregunta=:id_pregunta";
-    $statement = $dbc->prepare($sql);
-    $statement->bindParam(":id_pregunta", $pregunta);    
-    
-    $statement->execute();
-    return $statement->fetchAll(PDO::FETCH_ASSOC);
-    
 }
 
 function buscarrespuestasporfecha($dbc,$pregunta,$fecha){
@@ -49,16 +35,13 @@ function buscarrespuestasporfecha($dbc,$pregunta,$fecha){
     return $statement->fetchAll(PDO::FETCH_ASSOC);
     
 }
-function buscarrespuestasporvotos($dbc,$pregunta){
-<<<<<<< HEAD
-    $sql = "select sum(reacciones.positivos) as megusta, sum(reacciones.negativos) as nomegusta respuestas.id as lares, respuestas.descripcion as texto 
-    from respuestas , reacciones  where reacciones.id_respuesta=respuestas.id and respuestas.id_pregunta =:id_pregunta 
-    group by respuestas.id order by sum(reacciones.positivos) DESC";
-=======
-    $sql = "select sum(reacciones.megusta) as megusta, sum(reacciones.nomegusta) as nomegusta respuestas.id as lares, respuestas.descripcion as texto 
-    from respuestas , reacciones  where reacciones.id_respuesta=respuestas.id and respuestas.id_pregunta =:id_pregunta 
-    group by respuestas.id order by sum(reacciones.megusta) DESC";
->>>>>>> 5c0e981a417088f809157345a787c5b8094e4e2a
+function buscarRespuestasPorVotos($dbc,$pregunta){
+    $sql = "select respuestas.* ,
+    (select count(*) from megusta where id_respuesta=respuestas.id) as megusta,  
+    (select count(*) from nomegusta where id_respuesta=respuestas.id) as nomegusta
+    from respuestas
+    where  respuestas.id_pregunta =1
+    group by respuestas.id order by megusta DESC, nomegusta ASC";
     $statement = $dbc->prepare($sql);
     $statement->bindParam(":id_pregunta", $pregunta);  
 
@@ -66,8 +49,7 @@ function buscarrespuestasporvotos($dbc,$pregunta){
     return $statement->fetchAll(PDO::FETCH_ASSOC);
     
 }
-<<<<<<< HEAD
-=======
+
 
 
     function buscarRespuestaDeUnaPregunta($dbc, $idPregunta) {
@@ -120,4 +102,4 @@ function buscarrespuestasporvotos($dbc,$pregunta){
 
 ?>
 
->>>>>>> 5c0e981a417088f809157345a787c5b8094e4e2a
+
