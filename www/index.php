@@ -111,7 +111,7 @@ function paginatePreguntas(){
                         <input type="text" name="buscar_titulo" placeholder="buscar por titulo" id="campo-buscador" value="<?= isset($_GET['buscar_titulo']) ? $_GET['buscar_titulo'] : '' ?>">
                         <input type="submit" name="buscar" value="🔍" id="btn-buscar">
                     </form>
-                    <a href="#"><button class="preguntar">Preguntar</button></a>
+                    <a href="php/crear_pregunta.php"><button class="preguntar">Preguntar</button></a>
                 </div>
             </section>
             <section class="seccion-filtros">

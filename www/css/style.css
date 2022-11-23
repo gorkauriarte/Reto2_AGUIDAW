@@ -81,7 +81,7 @@ ul.filtros > li > a {
 }
 .detalle-pregunta{
     display: flex;
-    justify-content: start  ;
+    justify-content: start;
 }
 div.pregunta{
     margin-left: 2vw;
@@ -95,7 +95,7 @@ div.pregunta{
     text-decoration: none;
 }
 .info-pregunta{
-    min-width: 100% !important;
+    min-width: 60vw !important;
     margin-top: 1.5vh;
     display: flex;
     align-items: center;
