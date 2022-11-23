@@ -47,3 +47,14 @@ function actualizarUsuario($dbc, $id, array $datos){
     return $statement->execute();
 
 }
+
+function actualizarContrasena($dbc, $id, $password){
+    $sql = "update usuarios set password=:password where id=:id";
+    $statement = $dbc->prepare($sql);
+
+    $statement->bindParam(":password", $password);
+    $statement->bindParam(":id", $id);
+
+    return $statement->execute();
+
+}

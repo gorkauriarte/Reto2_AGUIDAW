@@ -37,6 +37,8 @@ $apellido = $_POST['apellido'];
 $email = $_POST['email'];
 $alias = $_POST['alias'];
 
+
+//NO ESTA TERMINADO
 // borrar imagen en caso de que el usuario tenga una imagen ya.
 if(isset($_POST['imagen']))
 {

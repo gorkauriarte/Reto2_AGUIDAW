@@ -5,7 +5,7 @@
 }
 
 body {
-    /*background: url(../img/aeropspace_shutterstock_1048379746.jpg);*/
+    background: white;
     background-size: cover;
     background-attachment: fixed;
 }
@@ -120,8 +120,25 @@ main {
     margin: 0.4em 0 0.8em 0;
 }
 
+.boton>input {
+    padding: 0.6em;
+    width: auto;
+    height: auto;
+    margin-bottom: 30px;
+    background-color: rgb(0, 113, 183);
+    color: white;
+    font-size: 20px;
+    border-radius: 10px;
+    border: 1px solid white;
+    margin: 0.4em 0 0.8em 0;
+}
+
 .confirmarCambios {
     display: none;
+}
+
+.mensaje-error {
+    color: red;
 }
 
 @media screen and (max-width:1200px) {
