@@ -7,6 +7,7 @@ require "php/basedatos.php";
 
 session_start();
 
+
 $preguntas = [];
 $cantidadPreguntas = 0;
 
@@ -113,7 +114,7 @@ function paginatePreguntas(){
                         <input type="text" name="buscar_titulo" placeholder="buscar por titulo" id="campo-buscador" value="<?= isset($_GET['buscar_titulo']) ? $_GET['buscar_titulo'] : '' ?>">
                         <input type="submit" name="buscar" value="🔍" id="btn-buscar">
                     </form>
-                    <a href="#"><button class="preguntar">Preguntar</button></a>
+                    <a href="php/crear_pregunta.php"><button class="preguntar">Preguntar</button></a>
                 </div>
             </section>
             <section class="seccion-filtros">
@@ -135,10 +136,10 @@ function paginatePreguntas(){
                             <div class="cantidad-respuesta">
                                 <h5><?= $pregunta['answers'] ?> respuestas</h5>
                             </div>
-                            <div>
+                            <div class="section-pregunta">
                                 <div class="pregunta">
 
-                                    <h4><a href="#" class="titulo-pregunta"><?= $pregunta['titulo'] ?></a></h4>
+                                    <h4><a href="php/detalle_pregunta.php?pregunta=<?= $pregunta['id'] ?>" class="titulo-pregunta"><?= $pregunta['titulo'] ?></a></h4>
                                     <p><?= substr_replace($pregunta['descripcion'],"...",300) ?></p>
 
 

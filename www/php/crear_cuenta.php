@@ -61,7 +61,10 @@ if(isset($_SESSION['id_usuario']) || (isset($_SESSION['loggedin'])) && $_SESSION
                 </div>
                 
                 <div class="fieldset">
-                    <input type="text" id="campo-alias" name ="alias" placeholder="Alias" <?php if(isset($_SESSION['old']['alias'])): ?> value="<?= $_SESSION['old']['alias'] ?>" <?php endif; ?> required>
+                    <input type="text" id="campo-alias" name ="alias" placeholder="Alias" <?php if(isset($_SESSION['old']['alias'])): ?> value="<?= $_SESSION['old']['alias'] ?>" <?php endif; ?> >
+                </div>
+                <div class="fieldset">
+                    <input type="file" id="campo-perfil" name ="perfil" >
                 </div>
                 <input type="submit" value="Registrarse">
             </form>
