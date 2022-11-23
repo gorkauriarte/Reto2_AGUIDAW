@@ -1,12 +1,7 @@
 <?php
-<<<<<<< HEAD
-function insertarrespuesta($dbc,array $datos){
-    $sql = "insert into respuestas(id_pregunta,descripcion,imagen) values(:id_pregunta,:descripcion,:imagen)";
-=======
 
 function insertarrespuesta($dbc,array $datos){
     $sql = "insert into respuestas(id_pregunta,id_usuario,descripcion,imagen) values(:id_pregunta,'0',:descripcion,:imagen)";
->>>>>>> 5c0e981a417088f809157345a787c5b8094e4e2a
     $statement = $dbc->prepare($sql);
 
     $statement->bindParam(":id_pregunta", $datos['id_pregunta']);    
@@ -50,15 +45,9 @@ function buscarrespuestasporfecha($dbc,$pregunta,$fecha){
     
 }
 function buscarrespuestasporvotos($dbc,$pregunta){
-<<<<<<< HEAD
-    $sql = "select sum(reacciones.positivos) as megusta, sum(reacciones.negativos) as nomegusta respuestas.id as lares, respuestas.descripcion as texto 
-    from respuestas , reacciones  where reacciones.id_respuesta=respuestas.id and respuestas.id_pregunta =:id_pregunta 
-    group by respuestas.id order by sum(reacciones.positivos) DESC";
-=======
     $sql = "select sum(reacciones.megusta) as megusta, sum(reacciones.nomegusta) as nomegusta respuestas.id as lares, respuestas.descripcion as texto 
     from respuestas , reacciones  where reacciones.id_respuesta=respuestas.id and respuestas.id_pregunta =:id_pregunta 
     group by respuestas.id order by sum(reacciones.megusta) DESC";
->>>>>>> 5c0e981a417088f809157345a787c5b8094e4e2a
     $statement = $dbc->prepare($sql);
     $statement->bindParam(":id_pregunta", $pregunta);  
 
@@ -66,8 +55,6 @@ function buscarrespuestasporvotos($dbc,$pregunta){
     return $statement->fetchAll(PDO::FETCH_ASSOC);
     
 }
-<<<<<<< HEAD
-=======
 
 
     function buscarRespuestaDeUnaPregunta($dbc, $idPregunta) {
@@ -120,4 +107,3 @@ function buscarrespuestasporvotos($dbc,$pregunta){
 
 ?>
 
->>>>>>> 5c0e981a417088f809157345a787c5b8094e4e2a

@@ -78,9 +78,9 @@ $alias = $_POST['alias'];
 $_POST['password'] = password_hash($_POST['password'],PASSWORD_BCRYPT);
 
 $imagen = "imagenes/profile.png"; // una imagen por defecto en caso de que el usuario no suba la foto
-if(isset($_POST['imagen']))
+if(isset($_FILES['perfil']))
 {
-    $result = subirFoto($_POST['perfil'],"../../imagenes/");
+    $result = subirFoto($_FILES['perfil'],"../../imagenes/");
     if($result['estado'] == 1)
     {
         $_POST['imagen'] = $result['ruta'];
@@ -98,7 +98,7 @@ $usuarioInsertado =  insertarUsuario($dbc,$_POST);
 // TODO : comprobar si se ha creado el usuario y mandar a la pagina inicial o a la anterior con algun mensaje
 if($usuarioInsertado){
     $_SESSION['exito'] = "Usuario se ha creado con exito";
-    header("location: /iniciasesion.php");
+    header("location: ../iniciosesion.php");
 }
 exit;
 

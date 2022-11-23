@@ -52,7 +52,7 @@ if($usuario){
 
         close($dbc);
 
-        header("location: ../vistas/home.php");
+        header("location: ../../index.php");
     }
     else{
         $_SESSION['login-error'] = "Lo sentimos, la contraseña o el correo esta mal";
