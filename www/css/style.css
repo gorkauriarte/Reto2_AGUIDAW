@@ -83,6 +83,10 @@ ul.filtros > li > a {
     display: flex;
     justify-content: start;
 }
+.section-pregunta{
+    width: 100%;
+
+}
 div.pregunta{
     margin-left: 2vw;
 }
@@ -129,7 +133,7 @@ ul.etiquetas{
     height: 4em;
     width: 4em;
     border-radius: 50%;
-    border: 1px solid orange;
+    
 
 }
 div.paginas{
@@ -158,3 +162,40 @@ li.pagina{
     text-align: center;
     text-decoration: none;
 }
+
+/* estilos de detalle pregunta  */
+.pregunta-pagina{
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    margin: 0 auto;
+    width: 70%;
+}
+.bookmark-section{
+    margin-right: 3em;
+    margin-top: 2em;
+}
+.bookmark-section img{
+    height: 2em;
+    width: 2em;
+}
+.pregunta-pagina-detalle{
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+#respuestas{
+    width: 70%;
+    max-width: 70%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+.respuesta {
+    min-width: 100%;
+    border-bottom: 1px solid black;
+    padding: 1em 0.3em;
+}
+

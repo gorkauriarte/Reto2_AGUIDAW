@@ -43,7 +43,7 @@
                     </div>
 
                     <figure class="testimony__picture">
-                        <img src="../img/face.jpg" class="testimony__img">
+                        <img src="../img/dusein.jpeg" class="testimony__img">
                     </figure>
                 </section>
 
@@ -82,7 +82,7 @@
                     </div>
 
                     <figure class="testimony__picture">
-                        <img src="../img/inigo.jpg" class="testimony__img">
+                        <img src="../img/top.jpeg" class="testimony__img">
                     </figure>
                 </section>
 
@@ -158,5 +158,7 @@
                 <a href="../php/crear_cuenta.php" class="cta">Crear cuenta</a>
             </section>
         </section>
+
+        <!--JAVASCRIPT-->
     <script src="../js/imgMover.js"></script>
     <script src="../js/preguntas.js"></script>

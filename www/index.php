@@ -5,6 +5,13 @@ require "php/models/usuario.php";
 require "php/models/etiqueta.php";
 require "php/basedatos.php";
 
+session_start();
+if(isset($_SESSION['loggedin']) || isset($_SESSION['id_usuario']))
+{
+    var_dump("logged in");
+    exit;
+}
+
 $preguntas = [];
 $cantidadPreguntas = 0;
 
@@ -133,10 +140,10 @@ function paginatePreguntas(){
                             <div class="cantidad-respuesta">
                                 <h5><?= $pregunta['answers'] ?> respuestas</h5>
                             </div>
-                            <div>
+                            <div class="section-pregunta">
                                 <div class="pregunta">
 
-                                    <h4><a href="#" class="titulo-pregunta"><?= $pregunta['titulo'] ?></a></h4>
+                                    <h4><a href="php/detalle_pregunta.php?pregunta=<?= $pregunta['id'] ?>" class="titulo-pregunta"><?= $pregunta['titulo'] ?></a></h4>
                                     <p><?= substr_replace($pregunta['descripcion'],"...",300) ?></p>
 
 

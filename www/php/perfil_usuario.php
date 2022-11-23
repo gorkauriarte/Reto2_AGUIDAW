@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,12 +23,11 @@
     ?>
 
     <main>
-        
         <div class="todo arriba">
             <div class="titulo">
                 <h1> Datos del usuario </h1>
             </div>
-            <form action="actualizar_perfil.php" method="post">
+            <form action="auth/actualizar_perfil.php" method="post">
                 <div class="datos">
                     <div class="img">
                         <img src="../img/bg2.jpg" alt="La imagen no se ha encontrado"/>
@@ -60,7 +65,7 @@
             <div class="titulo">
                 <h1> Cambiar contraseña </h1>
             </div>
-            <form action="actualizar_perfil.php" method="post"></form>
+            <form action="auth/actualizar_password.php" method="post" enctype="multipart/form-data">
                 <div class="datos">
                     
                     <div class="texto">
@@ -69,6 +74,9 @@
                                 <div class="contraseña">
                                     <input type="password" id="contrasena_actual" name="contrasena_actual" value="">
                                     <button id="mostrar_contrasena_actual"> <span id="span-ojo-actual" class="fa fa-eye-slash icon"></span> </button>
+                                    <?php if(isset($_SESSION['errors']['contrasena_actual'])): ?>
+                                        <small class="mensaje-error"><?= $_SESSION['errors']['contrasena_actual'] ?></small>
+                                    <?php endif; ?>
                                 </div>
                         </div>
                         <div class="texto_individual">           
@@ -76,6 +84,9 @@
                                 <div class="contraseña">
                                     <input type="password" id="contrasena_nueva" name="contrasena_nueva" value="">
                                     <button id="mostrar_contrasena_nueva"> <span id="span-ojo-nueva" class="fa fa-eye-slash icon"></span> </button>
+                                    <?php if(isset($_SESSION['errors']['password'])): ?>
+                                        <small class="mensaje-error"><?= $_SESSION['errors']['password'] ?></small>
+                                    <?php endif; ?>
                                 </div>
                         </div>
                         <div class="texto_individual">           
@@ -83,13 +94,18 @@
                                 <div class="contraseña">
                                     <input type="password" id="contrasena_confirmar" name="contrasena_confirmar" value="">
                                     <button id="mostrar_contrasena_confirmar"> <span id="span-ojo-confirmar" class="fa fa-eye-slash icon"></span> </button>
+                                    <?php if(isset($_SESSION['errors']['cpassword'])): ?>
+                                        <small class="mensaje-error"><?= $_SESSION['errors']['cpassword'] ?></small>
+                                    <?php endif; ?>
+                                    
                                 </div>
                         </div>
                     </div>
                 </div>
                 <div class="boton">
-                    <button type="submit" name="act_password" id="btCambiarContraseña">Cambiar contraseña</button>
-                </div> 
+                    <input type="submit" value="Cambiar contraseña">
+                </div>
+                
             </form>
         </div>
     </main>
@@ -102,3 +118,9 @@
     <script src="../js/perfil_usuario.js"></script>
 </body>
 </html>
+
+<?php 
+
+unset($_SESSION['errors']); 
+
+?>

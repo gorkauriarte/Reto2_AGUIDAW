@@ -31,7 +31,6 @@ function crearPregunta($dbc,$usuario,$datos)
     $sql = "insert into preguntas(id_usuario,titulo,descripcion,imagen) values(:usuario,:titulo,:descripcion,:imagen)";
     $statement = $dbc->prepare($sql);
 
-   
     //$statement->bindParam(':usuario',$_SESSION['id_usuario']);
     $statement->bindParam(':usuario',$usuario);
     $statement->bindParam(':titulo',$datos['titulo']);
@@ -76,7 +75,7 @@ function buscarPreguntaPorId($dbc,$idPregunta)
 
     $statement->execute();
 
-    return $statement->fetchAll(PDO::FETCH_ASSOC);
+    return $statement;
 
 }
 

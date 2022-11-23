@@ -27,10 +27,15 @@ nav .logo {
     width: 50px;
 }
 
+.perfil img {
+    width: 50px;
+}
+
 nav ul {
     display: flex;
     flex-wrap: wrap;
     list-style: none;
+    align-items: center;
 }
 
 nav ul li {
@@ -49,7 +54,7 @@ nav ul li a {
 }
 
 nav ul li a.active,
-nav ul li a:hover {
+nav ul li .color:hover {
     color: #111;
     background: #fff;
 }

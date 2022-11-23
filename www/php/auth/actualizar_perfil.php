@@ -1,13 +1,13 @@
 <?php
 session_start();
-require "basedatos.php";
-require "models/usuario.php";
+require "../basedatos.php";
+require "../models/usuario.php";
 
 
 var_dump($_POST);
 
 function vuelveAtras(){
-    header("location: /php/crear_perfil.php");
+    header("location:../perfil_usuario.php");
     
 }
 
@@ -37,6 +37,8 @@ $apellido = $_POST['apellido'];
 $email = $_POST['email'];
 $alias = $_POST['alias'];
 
+
+//NO ESTA TERMINADO
 // borrar imagen en caso de que el usuario tenga una imagen ya.
 if(isset($_POST['imagen']))
 {
