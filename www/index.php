@@ -6,11 +6,7 @@ require "php/models/etiqueta.php";
 require "php/basedatos.php";
 
 session_start();
-if(isset($_SESSION['loggedin']) || isset($_SESSION['id_usuario']))
-{
-    var_dump("logged in");
-    exit;
-}
+
 
 $preguntas = [];
 $cantidadPreguntas = 0;
