@@ -85,58 +85,6 @@ main {
     text-decoration: underline;
 }
 
-.respuesta {
-    width: 78vw;
-    border: 1px solid black;
-    padding: 0.4em;
-    margin: 1em 0;
-    text-align: justify;
-    display: grid;
-    grid-template-areas: "texto texto" "imagen usuario";
-}
-.respuesta>.respuesta_explicacion {
-    grid-area: texto;
-    display: flex;
-    flex-direction: column;
-} 
-.respuesta>.respuesta_explicacion>img {
-    grid-area: imagen;
-    max-width: 10vw;
-    padding-left: .4em;
-}
-.respuesta>.reaccion {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-}
-.respuesta>.reaccion>p {
-    margin: .2em;
-}
-.respuesta>.reaccion>.like {
-    margin-right: .8em;
-}
-.respuesta>.reaccion>button {
-    font-size: 15px;
-    margin: .2em;
-    padding: .4em;
-}
-.respuesta>.usuario_respuesta {
-    grid-area: usuario;
-    margin-top: .4em;
-    display: flex;
-    justify-content: right;
-    align-items: center;
-}
-.respuesta>.usuario_respuesta>img {
-    border-radius: 50%;
-    width: 3em;
-    height: 3em;
-    margin-right: .4em;
-}
-.respuesta>.usuario_respuesta>p {
-    margin-right: 0.4em;
-}
-
 .crear_respuesta {
     margin: 3vw 0 2vw 0;
     width: 78vw;

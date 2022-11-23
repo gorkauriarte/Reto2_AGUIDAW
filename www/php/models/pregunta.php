@@ -74,7 +74,7 @@ function buscarPreguntaPorId($dbc,$idPregunta)
 
     $statement->execute();
 
-    return $statement->fetchAll(PDO::FETCH_ASSOC);
+    return $statement;
 
 }
 
