@@ -34,7 +34,7 @@ if(!isset($_SESSION['id_usuario']) || (!isset($_SESSION['loggedin'])) && $_SESSI
         <div class="titulo-h2">
             <h2> Crea tu propia pregunta </h2>
         </div>
-        <form action="auth/crear_pregunta.php" method="POST" enctype="multipart/form-data">
+        <form action="auth/preguntas/crear_pregunta.php" method="POST" enctype="multipart/form-data">
             <div class="formulario">
                 <input name="titulo" type="text" id="titulo" class="titulo" placeholder="Escribe el titulo" class="titulo">
                 <?php if(isset($_SESSION['errors']['titulo'])): ?>

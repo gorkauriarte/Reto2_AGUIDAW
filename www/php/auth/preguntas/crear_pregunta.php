@@ -1,9 +1,9 @@
 <?php
 
-require "../models/pregunta.php";
-require "../models/etiqueta.php";
-require "../helpers/file_manager.php";
-require "../basedatos.php";
+require "../../models/pregunta.php";
+require "../../models/etiqueta.php";
+require "../../helpers/file_manager.php";
+require "../../basedatos.php";
 
 session_start();
 function vuelveAtras(){
@@ -40,7 +40,7 @@ rellenarOldInputs();
     //ARCHIVO
     if(isset($_FILES['archivo']) && $_FILES['archivo']["name"] != "")
     {
-        $result = subirFoto($_FILES['archivo'],"../../imagenes/");
+        $result = subirFoto($_FILES['archivo'],"../../../imagenes/");
         if($result['estado'] == 1)
         {
             $_POST['archivo'] = $result['ruta'];
@@ -48,7 +48,7 @@ rellenarOldInputs();
     }
     else 
     {
-        $_POST['archivo'] = "imagenes/profile.png";
+        $_POST['archivo'] = null;
     }
 
 
@@ -76,7 +76,7 @@ rellenarOldInputs();
     close($dbc);
     if($preguntadInsertada){
         $_SESSION['exito'] = "La pregunta se ha creado con exito";
-        header("location: /../index.php");
+        header("location: /index.php");
     }
     
 ?>

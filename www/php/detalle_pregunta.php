@@ -1,6 +1,6 @@
 <?php
 
-
+session_start();
 require 'basedatos.php';
 require 'models/pregunta.php';
 require 'models/usuario.php';
