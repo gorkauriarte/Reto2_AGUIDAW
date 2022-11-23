@@ -11,7 +11,7 @@ var_dump(todasPreguntasConNumroDeRespuestasYUsuario(connect()));
 exit;
 $actulizar = ["nombre" => "inigo", "apellido" => "bruko", "alias" => "kizru", "email" => "kizaru@gmail.com", "archivo_imagen"];
 //var_dump(preguntaConRespuestas(connect(),6)->fetchAll());
-var_dump(actulizarUsuario(connect(), 1,$actulizar ));
+var_dump(actualizarUsuario(connect(), 1,$actulizar ));
 
 
 ?>

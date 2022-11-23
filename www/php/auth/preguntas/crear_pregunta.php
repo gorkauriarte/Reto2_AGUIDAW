@@ -5,49 +5,79 @@ require "../models/etiqueta.php";
 require "../helpers/file_manager.php";
 require "../basedatos.php";
 
+session_start();
+function vuelveAtras(){
+    header("location: /php/crear_pregunta.php");
+    exit;
+}
+// rellanar los datos en una sesion si por algun error tenemos que ir atras podemos rellanar el formulario
+function rellenarOldInputs(){
+    foreach($_POST as $key => $value)
+    {
+        $_SESSION['old'][$key] = $value;
+    }
+}
+rellenarOldInputs();
+
+
+    if(!isset($_POST['titulo']) || $_POST['titulo'] == "")
+    {
+        $_SESSION['errors']['titulo'] = "El campo titulo es obligatorio";
+        vuelveAtras();
+    }
+    if(!isset($_POST['descripcion']) || $_POST['descripcion'] == "")
+    {
+        $_SESSION['errors']['descripcion'] = "El campo descripcion es obligatorio";
+        vuelveAtras();
+    }
+
+
 
     $titulo = $_POST['titulo'];
     $descripcion = $_POST['descripcion'];
+    
 
-    //Imagen
-    $imagen = "imagenes/profile.png";
-    if(isset($_POST['imagen']))
+    //ARCHIVO
+    if(isset($_FILES['archivo']) && $_FILES['archivo']["name"] != "")
     {
-        $result = subirFoto($_POST['perfil'],"../../imagenes/");
+        $result = subirFoto($_FILES['archivo'],"../../imagenes/");
         if($result['estado'] == 1)
         {
-            $_POST['imagen'] = $result['ruta'];
+            $_POST['archivo'] = $result['ruta'];
         }
     }
-    else{
-        $_POST['imagen'] = "imagenes/profile.png";
+    else 
+    {
+        $_POST['archivo'] = "imagenes/profile.png";
     }
+
 
 
     
     $dbc = connect();
 
     //Crear usuario
-    $datosPregunta=["titulo"=>$titulo,"descripcion"=>$descripcion,"imagen"=>$_POST['imagen']];
-    $usuario = $_SESSION["id_usuario"];
-    $usuarioInsertado =  crearPregunta($dbc,$usuario,$datosPregunta);
+    $usuario = (int) $_SESSION["id_usuario"];
 
+    $preguntadInsertada =  crearPregunta($dbc,$usuario,$_POST);
 
     
-    //Etiqueta
-    $pregunta = buscarPreguntasPorTitulo($dbc, $datosPregunta["titulo"]);
-    $id_pregunta = $pregunta["id_pregunta"];
-    $etiquetas = $_POST['lista_etiqueta'];
+    //Crear Etiqueta
+    if(isset($_POST["lista_etiqueta"]))
+    {
+        $lista_etiqueta = $_POST["lista_etiqueta"];
+        $etiquetas = explode(",", $lista_etiqueta);
+    }
     foreach($etiquetas as $item) {
-        $id_etiqueta = buscarEtiquetaPorNombre($dbc, $item);
-
-        $datosEtiqueta = ["id_pregunta"=>$id_pregunta,"id_etiqueta"=>$id_etiqueta];
+        $datosEtiqueta = ["id_pregunta"=>$preguntadInsertada,"id_etiqueta"=>$item];
         $etiquetaInsertadaPregunta = crearPreguntaEtiqueta($dbc, $datosEtiqueta);
     }
 
-
-
     close($dbc);
+    if($preguntadInsertada){
+        $_SESSION['exito'] = "La pregunta se ha creado con exito";
+        header("location: /../index.php");
+    }
     
 ?>
 

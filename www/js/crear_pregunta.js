@@ -5,13 +5,14 @@ function mostrarEtiquetasSeleccionadas() {
     etiquetas_seleccionadas.forEach(item => {
         etiquetas += `<li class="item-etqueta">${item}</li>`;
     });
-
+ 
     document.getElementById("etiquetas_elegidas").innerHTML = `<ul class="lista-etiquetas">${etiquetas} </ul>`;
    
     
 }
 function getSelectValues(select) {
     var seleccionados = [];
+    var seleccionadosId = [];
     var options = select && select.options;
     var opt;
   
@@ -19,9 +20,11 @@ function getSelectValues(select) {
       opt = options[i];
       if (opt.selected) {
         seleccionados.push(opt.text);
+        seleccionadosId.push(opt.value);
       }
 
     }
-    document.getElementById("lista_etiqueta").value = seleccionados;
+
+    document.getElementById("lista_etiqueta").value = seleccionadosId;
     return seleccionados;
   }

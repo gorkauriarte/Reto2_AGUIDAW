@@ -18,7 +18,9 @@
     margin: 1.6em 0 .4em 0;
     width: 70vw;
 }
-
+.mensaje-error{
+    color:red;
+}
 .formulario>.titulo {
     padding: .4em;
     margin: .4em 0;
@@ -40,7 +42,7 @@
 .formulario>.descripcion::placeholder {
     color: black;
 }
-.formulario>.archivo_pregunta {
+.formulario>.archivo {
     margin: .4em 0;
 }
 .lista-etiquetas {
@@ -68,7 +70,7 @@
     display: flex;
     justify-content: center;
 }
-.formulario>.boton>button {
+.formulario>.boton>input {
     padding: .3em;
     margin: .4em 0 1.6em 0;
     width: 10vw;

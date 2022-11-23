@@ -36,9 +36,11 @@ function crearPregunta($dbc,$usuario,$datos)
     $statement->bindParam(':usuario',$usuario);
     $statement->bindParam(':titulo',$datos['titulo']);
     $statement->bindParam(':descripcion',$datos['descripcion']);
-    $statement->bindParam(':imagen',$$datos["imagen"]);
+    $statement->bindParam(':imagen',$datos["archivo"]);
 
-    return $statement->execute(); // devuelve true o false
+    $statement->execute();
+    return $dbc->lastInsertId();
+    
 }
 
 
