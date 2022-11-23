@@ -15,7 +15,7 @@ main {
     align-items: center;
     justify-content: center;
     background: #0D6EFD;
-    background: url(../img/aeropspace_shutterstock_1048379746.jpg);
+    background: white;
 }
 
 ::selection {
@@ -80,7 +80,7 @@ form .mensaje textarea {
     border: 1px solid #ccc;
 }
 
-.campo input::placeholder,
+in .campo input::placeholder,
 .mensaje textarea::placeholder {
     color: #ccc;
 }

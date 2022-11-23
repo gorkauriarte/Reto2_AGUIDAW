@@ -1,5 +1,6 @@
 <?php
 
+
 require 'basedatos.php';
 require 'models/pregunta.php';
 require 'models/usuario.php';
@@ -38,6 +39,7 @@ if(isset($_GET['pregunta']))
 
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

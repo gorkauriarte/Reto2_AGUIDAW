@@ -5,6 +5,8 @@ require "php/models/usuario.php";
 require "php/models/etiqueta.php";
 require "php/basedatos.php";
 
+session_start();
+
 $preguntas = [];
 $cantidadPreguntas = 0;
 

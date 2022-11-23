@@ -11,7 +11,8 @@
             <div class="box">
                 <h2>SOBRE NOSOTROS</h2>
                 <p>Sitio web desarrollado y gestionado por el Servicio Web de <a href="">AGUIDAW</a></p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, ipsa?</p>
+                <p>Avda. Puerta de Hierro, s/n. Arriga
+                </p>
             </div>
             <div class="box">
                 <h2>SIGUENOS</h2>
