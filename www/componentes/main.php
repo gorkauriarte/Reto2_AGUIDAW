@@ -149,6 +149,7 @@
                     </div>
                 </article>
             </section>
+            
             <!--ESTAS LISTO-->
             <section class="questions__offer">
                 <h2 class="subtitle">¿Estas listo para Comenzar?</h2>

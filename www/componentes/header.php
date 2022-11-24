@@ -15,7 +15,7 @@
                <li><a class="color" href="#">Favoritos</a></li>
                <li><a class="color" href="../php/auth/logout.php">Logout</a></li>
                <li class="perfil">
-           <a href="../php/perfil_usuario.php"><img src="<?=$_SESSION['']?>" alt="Error_imagen"></a></li>
+           <a href="../php/perfil_usuario.php"><img src="" alt="Error_imagen"></a></li>
            
 
             <?php else: ?>

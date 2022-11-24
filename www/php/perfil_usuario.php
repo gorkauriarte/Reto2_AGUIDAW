@@ -2,6 +2,8 @@
 
 session_start();
 
+
+
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +29,7 @@ session_start();
             <div class="titulo">
                 <h1> Datos del usuario </h1>
             </div>
-            <form action="auth/actualizar_perfil.php" method="post">
+            <form action="auth/actualizar_perfil.php" method="post" enctype="multipart/form-data">
                 <div class="datos">
                     <div class="img">
                         <img src="../img/bg2.jpg" alt="La imagen no se ha encontrado"/>
@@ -36,19 +38,31 @@ session_start();
                     <div class="texto">
                         <div class="texto_individual">
                             <label for="nombre">Nombre: </label>
-                            <input type="text" id="nombre" name="nombre" value="ameer" readonly>
+                            <input type="text" id="nombre" name="nombre" value="" readonly>
+                            <?php if(isset($_SESSION['errors']['nombre'])): ?>
+                                <small class="mensaje-error"><?= $_SESSION['errors']['nombre'] ?></small>
+                            <?php endif; ?>
                         </div>
                         <div class="texto_individual">
                             <label for="apellido"p>Apellido: </label>
-                            <input type="text" id="apellido" name="apellido" value="hamza" readonly>
+                            <input type="text" id="apellido" name="apellido" value="" readonly>
+                            <?php if(isset($_SESSION['errors']['apellido'])): ?>
+                                <small class="mensaje-error"><?= $_SESSION['errors']['apellido'] ?></small>
+                            <?php endif; ?>
                         </div>
                         <div class="texto_individual">         
                             <label for="email">Email: </label>
-                            <input type="text" id="email" name="email" value="ameer@gmail.com" readonly>
+                            <input type="text" id="email" name="email" value="" readonly>
+                            <?php if(isset($_SESSION['errors']['email'])): ?>
+                                <small class="mensaje-error"><?= $_SESSION['errors']['email'] ?></small>
+                            <?php endif; ?>
                         </div>
                         <div class="texto_individual">           
                             <label for="username">Username: </label>
-                            <input type="text" id="username" name="alias" value="ameerhamza" readonly>
+                            <input type="text" id="username" name="alias" value="" readonly>
+                            <?php if(isset($_SESSION['errors']['alias'])): ?>
+                                <small class="mensaje-error"><?= $_SESSION['errors']['alias'] ?></small>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
