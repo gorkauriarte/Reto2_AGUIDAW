@@ -69,41 +69,14 @@ function buscarrespuestasporvotos($dbc,$pregunta){
     }
 
     function crearRespuesta($dbc, $datos) {
-        $sql = "insert into respuesta(id_pregunta,id_usuario,descripcion,imagen) values(:idPregunta,:usuario,:descripcion,:imagen)";
+        $sql = "insert into respuestas(id_pregunta,descripcion,imagen) values(:idPregunta,:descripcion,:imagen)";
         $statement = $dbc->prepare($sql);
 
-        $subirImg = subirFoto($_FILES['imagen_respuesta'],"../../imagenes/");
-        if($subirImg['estado'] == 1){
-            $imgPath = $subirImg['ruta'];
-        }
-        $usuario = $_SESSION['id_usuario'] ?? 1;
-
-
-        $statement->bindParam(':idPregunta',$datos['idPregunta']);
-        $statement->bindParam(':usuario',$usuario);
+        $statement->bindParam(':idPregunta',$datos['id_pregunta']);
         $statement->bindParam(':descripcion',$datos['descripcion']);
-        $statement->bindParam(':imagen',$imgPath);
+        $statement->bindParam(':imagen',$datos['imagen']);
 
-        return $statement->execute(); // devuelve true o false
+        $statement->execute(); 
+        return $statement; // devuelve true o false
     }
-
- 
-    function actualizarRespuesta($dbc,$idRespuesta,$descripcion)
-    {
-        $sql = "update respuestas set descripcion=:descripcion,imagen=:imagen where id=:idRespuesta";
-        $statement = $dbc->prepare($sql);
-
-        $subirImg = subirFoto($_FILES['imagen_respuesta'],"../../imagenes/");
-        if($subirImg['estado'] == 1){
-            $imgPath = $subirImg['ruta'];
-        }
-
-        $statement->bindParam(":imagen",$imgPath);
-        $statement->bindParam(":descripcion",$descripcion);
-        $statement->bindParam(":idRespuesta",$idRespuesta);
-
-        return $statement->execute();
-    }
-
 ?>
-
