@@ -145,6 +145,7 @@ if(isset($_GET['pregunta']))
         require "../componentes/footer.php";
     ?>
     <script src="../js/respuesta_lista.js"></script>
+    <script src="../js/detalle_pregunta.js"></script>
     <script>
        
         let marcado = document.getElementById('marcado');
