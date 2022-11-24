@@ -2,7 +2,11 @@
 
 session_start();
 
+require 'basedatos.php';
+require 'models/usuario.php';
+require 'helpers/file_manager.php';
 
+$usuario = buscarUsuarioPorId(connect(),(int) $_SESSION['id_usuario']);
 
 ?>
 
@@ -32,34 +36,34 @@ session_start();
             <form action="auth/actualizar_perfil.php" method="post" enctype="multipart/form-data">
                 <div class="datos">
                     <div class="img">
-                        <img src="../img/bg2.jpg" alt="La imagen no se ha encontrado"/>
+                        <img src="../<?= $usuario->imagen ?? "imagenes/hila.png" ?>" alt="La imagen no se ha encontrado"/>
                         <input type="file" id="archivo_imagen" name="archivo_imagen" class="img-file">                
                     </div>
                     <div class="texto">
                         <div class="texto_individual">
                             <label for="nombre">Nombre: </label>
-                            <input type="text" id="nombre" name="nombre" value="" readonly>
+                            <input type="text" id="nombre" name="nombre" value="<?= $usuario->nombre ?>" readonly>
                             <?php if(isset($_SESSION['errors']['nombre'])): ?>
                                 <small class="mensaje-error"><?= $_SESSION['errors']['nombre'] ?></small>
                             <?php endif; ?>
                         </div>
                         <div class="texto_individual">
                             <label for="apellido"p>Apellido: </label>
-                            <input type="text" id="apellido" name="apellido" value="" readonly>
+                            <input type="text" id="apellido" name="apellido" value="<?= $usuario->apellido ?>" readonly>
                             <?php if(isset($_SESSION['errors']['apellido'])): ?>
                                 <small class="mensaje-error"><?= $_SESSION['errors']['apellido'] ?></small>
                             <?php endif; ?>
                         </div>
                         <div class="texto_individual">         
                             <label for="email">Email: </label>
-                            <input type="text" id="email" name="email" value="" readonly>
+                            <input type="text" id="email" name="email" value="<?= $usuario->email ?>" readonly>
                             <?php if(isset($_SESSION['errors']['email'])): ?>
                                 <small class="mensaje-error"><?= $_SESSION['errors']['email'] ?></small>
                             <?php endif; ?>
                         </div>
                         <div class="texto_individual">           
                             <label for="username">Username: </label>
-                            <input type="text" id="username" name="alias" value="" readonly>
+                            <input type="text" id="username" name="alias" value="<?= $usuario->alias ?>" readonly>
                             <?php if(isset($_SESSION['errors']['alias'])): ?>
                                 <small class="mensaje-error"><?= $_SESSION['errors']['alias'] ?></small>
                             <?php endif; ?>

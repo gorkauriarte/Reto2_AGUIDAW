@@ -49,10 +49,8 @@ if(isset($_FILES['archivo_imagen']))
 
     $imagenActual = $usuarioActual->imagen;
    
-
-        $result = borrarFoto("../../$imagenActual");
-
-    if ($result) {
+       /* $result = borrarFoto("../../$imagenActual");
+    if ($result) {*/
 
         $subir = subirFoto($_FILES['archivo_imagen'],"../../imagenes/");
 
@@ -60,19 +58,17 @@ if(isset($_FILES['archivo_imagen']))
         {
             $_POST['imagen'] = $subir['ruta'];
         }
-    }
+    //}
 
 }else{
     $_POST['imagen'] = "imagenes/profile.png";
 }
 
-
-var_dump($_POST);
-exit;
 $usuarioActulizado =  actualizarUsuario($dbc, $_SESSION["id_usuario"], $_POST);
 
 if($usuarioActulizado){
     $_SESSION['Correcto'] = "Los datos se han cambiado correctamente";
+    header("location:../perfil_usuario.php");
 }
 
 exit;

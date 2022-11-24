@@ -7,15 +7,15 @@
                 <article class="about__icons">
                     <img src="../img/shapes.svg" class="about__icon">
                     <h3 class="about__title">Crear tus preguntas</h3>
-                    <p class="about__paragrah">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae tempore
-                        porro eius facilis?</p>
+                    <p class="about__paragrah">Crea tus preguntas y algun usuario podra 
+                        ayudarte a resolverlo</p>
                 </article>
 
                 <article class="about__icons">
                     <img src="../img/paint.svg" class="about__icon">
                     <h3 class="about__title">Responde</h3>
-                    <p class="about__paragrah">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae tempore
-                        porro eius facilis?</p>
+                    <p class="about__paragrah">Responde a otros usuarios a poder 
+                        resolver sus dudas</p>
                 </article>
 
                 <article class="about__icons">
@@ -43,7 +43,7 @@
                     </div>
 
                     <figure class="testimony__picture">
-                        <img src="../img/dusein.jpeg" class="testimony__img">
+                        <img src="../img/ameer.jpeg" class="testimony__img">
                     </figure>
                 </section>
 
@@ -82,7 +82,7 @@
                     </div>
 
                     <figure class="testimony__picture">
-                        <img src="../img/top.jpeg" class="testimony__img">
+                        <img src="../img/IMG-20220930-WA0004.jpg" class="testimony__img">
                     </figure>
                 </section>
 
@@ -94,8 +94,8 @@
          <!--PREGUNTAS FRECUENTES-->
         <section class="questions container">
             <h2 class="subtitle">Preguntas frecuentes</h2>
-            <p class="questions__paragraph">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea, porro
-                doloribus neque perspiciatis sapiente fuga.</p>
+            <p class="questions__paragraph">Aqui podras encontrar preguntas en las que te pueden ayudar para solucionar 
+                tus dudas de como utilizar nuestra WEB.</p>
 
             <section class="questions__container">
                 <article class="questions__padding">
@@ -153,9 +153,8 @@
             <!--ESTAS LISTO-->
             <section class="questions__offer">
                 <h2 class="subtitle">¿Estas listo para Comenzar?</h2>
-                <p class="questions__copy">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet ratione
-                    architecto magnam, officiis ex porro vero est voluptates quaerat quibusdam illo veniam reprehenderit
-                    eius atque tempora iure ab non autem.</p>
+                <p class="questions__copy">Una vez entendido de como puedes utilizar nuestra web, abajo tienes un Boton
+                    donde puedes crear tu cuenta y comenzar..</p>
                 <a href="../php/crear_cuenta.php" class="cta">Crear cuenta</a>
             </section>
         </section>

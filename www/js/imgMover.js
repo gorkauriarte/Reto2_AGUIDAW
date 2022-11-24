@@ -5,7 +5,7 @@
 
     setInterval(() => {
         changePosition(1);
-    }, 10000);
+    }, 5000);
 
 
     const changePosition = (add) => {
