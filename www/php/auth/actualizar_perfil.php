@@ -43,8 +43,9 @@ $alias = $_POST['alias'];
 
 $dbc = connect();
 
-if(isset($_FILES['archivo_imagen']))
+if(isset($_FILES['archivo_imagen']) && $_FILES['archivo_imagen']['name'] != "")
 {
+   
     $usuarioActual = buscarUsuarioPorId($dbc, $_SESSION["id_usuario"]);
 
     $imagenActual = $usuarioActual->imagen;

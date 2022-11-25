@@ -19,7 +19,7 @@ try {
 
 if($todoBien)
 {
-    echo json_encode(['mensaje' => 'Pregunta bookmarked','estado' => 'ok']);
+    echo json_encode(['mensaje' => 'Pregunta Guardada','estado' => 'ok']);
 }
 else{
     echo json_encode(['mensaje' => 'Error marcando pregunta','estado' => 'ko' ]);

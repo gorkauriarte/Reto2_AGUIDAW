@@ -182,7 +182,7 @@ if(isset($_GET['pregunta']))
             if (typeof existe === 'undefined') 
             {
                 document.cookie = "vecesVisitado=1";
-                alert("Primera vez");
+              
             }
             else
             {
@@ -201,6 +201,60 @@ if(isset($_GET['pregunta']))
             if (parts.length === 2) return parts.pop().split(';').shift();
         }
         
+
+
+        function upvote(respuesta,usuario){
+            let id = `${respuesta}-${usuario}-upvote`;
+          
+
+            let formData = new FormData();
+            formData.append('id_respuesta',respuesta);
+            formData.append('id_usuario',usuario);
+
+            console.log("upvoting");
+             fetch("http://localhost/php/auth/votos/votar.php",{
+                method: 'POST',
+                body: formData
+            }).then(res => {
+                return res.json();
+            })
+            .then(data => {
+                if(data.estado == 'ok')
+                {
+                    console.log(data.upvotes.upvotes);
+                    document.getElementById(id).innerHTML  = data.upvotes.upvotes;
+                    // up
+                }
+            })
+            console.log(document.getElementById(id).innerHTML);
+        }
+        function downvote(respuesta,usuario){
+            let id = respuesta +"-"+usuario + "-downvote";
+            console.log("downvoting");
+
+            let formData = new FormData();
+            formData.append('id_respuesta',respuesta);
+            formData.append('id_usuario',usuario);
+
+            console.log("upvoting");
+             fetch("http://localhost/php/auth/votos/down_votar.php",{
+                method: 'POST',
+                body: formData
+            }).then(res => {
+                return res.json();
+            })
+            .then(data => {
+                if(data.estado == 'ok')
+                {
+                    console.log(data);
+                    document.getElementById(id).innerHTML  = data.downvotes.downvotes;
+
+                }
+            })
+
+        }
+
+
     </script>
 </body>
 </html>

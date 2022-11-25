@@ -18,7 +18,7 @@ try {
 
 if($todoBien)
 {
-    echo json_encode(['mensaje' => 'Pregunta unbookmarked','estado' => 'ok']);
+    echo json_encode(['mensaje' => 'Pregunta Desmarcada','estado' => 'ok']);
 }
 else{
     echo json_encode(['mensaje' => 'Error un marcando pregunta','estado' => 'ko' ]);

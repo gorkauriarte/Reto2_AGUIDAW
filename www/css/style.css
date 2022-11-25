@@ -85,6 +85,8 @@ ul.filtros > li > a {
 }
 .icono-save:hover{
     cursor: pointer;
+    font-size: 1.4em;
+    transition: 1s;
 }
 .titulo-p{
     margin-bottom: 1vh;

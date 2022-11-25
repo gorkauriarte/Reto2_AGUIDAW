@@ -52,7 +52,6 @@ rellenarOldInputs();
     }
 
 
-
     
     $dbc = connect();
 

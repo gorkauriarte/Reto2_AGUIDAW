@@ -135,11 +135,6 @@ function paginatePreguntas(){
                         <div class="detalle-pregunta">  
                             <div class="cantidad-respuesta">
                                 <h5><?= $pregunta['answers'] ?> respuestas</h5>
-                                <?php if(isset($_SESSION['loggedin']) && ($_SESSION['id_usuario'] == $pregunta['id'])): ?>
-                                    <div>
-                                        delete
-                                    </div>
-                                    <?php endif; ?>
                             </div>
                             <div class="section-pregunta">
                                 <div class="pregunta">

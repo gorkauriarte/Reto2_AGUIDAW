@@ -1,6 +1,5 @@
 <?php 
-require "models/usuario.php";
-require "basedatos.php";
+
 session_start();
 
 require 'basedatos.php';

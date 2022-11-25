@@ -7,7 +7,7 @@ if(isset($_SESSION['loggedin'])){
 ?>
     <nav>
          <div class="logo">
-           <a href="../index.php"><img src="../img/Stack_Overflow_icon.svg.png" alt="Error en la imagen"></a>
+           <a href="../index.php"><img src="../img/logo.png" alt="Error en la imagen"></a>
          </div>
          <input type="checkbox" id="click">
          <label for="click" class="menu-btn">
@@ -17,7 +17,7 @@ if(isset($_SESSION['loggedin'])){
             <li><a class="color" href="../index.php">Home</a></li>
             <li><a class="color" href="../php/help.php">Help</a></li>
             <?php if(isset($_SESSION['loggedin']) || isset($_SESSION['id_usuario'])): ?>
-               <li><a class="color" href="#">Favoritos</a></li>
+               <li><a class="color" href="../php/preguntas_guardadas.php">Favoritos</a></li>
                <li><a class="color" href="../php/auth/logout.php">Logout</a></li>
                <li class="perfil">
            <a href="../php/perfil_usuario.php"><img src="../<?= $usuario->imagen ?>" alt="perfil"></a></li>
