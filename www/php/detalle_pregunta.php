@@ -16,15 +16,16 @@ if(isset($_GET['pregunta']))
     $pregunta = buscarPreguntaPorId($dbc,$idPregunta)->fetch();
     if(!$pregunta)
     {
-        echo "El url esta mal o pregunta con este id no existe";
-        return;
+        
     }
 
     $preguntaMarcada = false;
 
-    if(esPreguntaMarcada($dbc,$pregunta['id'],$pregunta['id_usuario'])->fetch())
-    {
-        $preguntaMarcada = true;
+    if(isset($_SESSION['loggedin'])){
+        if(esPreguntaMarcada($dbc,$pregunta['id'],$_SESSION['id_usuario'])->fetch())
+        {
+            $preguntaMarcada = true;
+        }
     }
 
     $respuestas = buscarRespuestaDeUnaPregunta($dbc,$pregunta['id']);
@@ -65,19 +66,21 @@ if(isset($_GET['pregunta']))
     <main>
     <div class="contenido-preguntas">
                         <section class="pregunta-pagina">
+                            <?php if(isset($_SESSION['loggedin'])): ?>
                             <div class="bookmark-section">
                                 <?php if($preguntaMarcada): ?>
-                                <img src="../img/bookmarked.png" alt="bookmarked" id="marcado" onclick="unbookmarkPregunta('<?php echo $pregunta['id'] ?>','<?php echo $pregunta['id_usuario'] ?>')" >
-                                <img src="../img/unbookmark.png" alt="bookmarked" id="nomarcado" onclick="bookmarkPregunta('<?php echo $pregunta['id'] ?>','<?php echo $pregunta['id_usuario'] ?>')" style="display:none">
+                                <img src="../img/bookmarked.png" alt="bookmarked" id="marcado" class="icono-save" onclick="unbookmarkPregunta('<?php echo $pregunta['id'] ?>','<?php echo $pregunta['id_usuario'] ?>')" >
+                                <img src="../img/unbookmark.png" alt="bookmarked" id="nomarcado"  class="icono-save" onclick="bookmarkPregunta('<?php echo $pregunta['id'] ?>','<?php echo $pregunta['id_usuario'] ?>')" style="display:none">
                                 <?php else: ?>
-                                <img src="../img/unbookmark.png" alt="bookmarked" id="nomarcado" onclick="bookmarkPregunta('<?php echo $pregunta['id'] ?>','<?php echo $pregunta['id_usuario'] ?>')" >
-                                <img src="../img/bookmarked.png" alt="bookmarked" id="marcado" onclick="unbookmarkPregunta('<?php echo $pregunta['id'] ?>','<?php echo $pregunta['id_usuario'] ?>')" style="display:none">
+                                <img src="../img/unbookmark.png" alt="bookmarked" id="nomarcado"  class="icono-save" onclick="bookmarkPregunta('<?php echo $pregunta['id'] ?>','<?php echo $pregunta['id_usuario'] ?>')" >
+                                <img src="../img/bookmarked.png" alt="bookmarked" id="marcado"  class="icono-save" onclick="unbookmarkPregunta('<?php echo $pregunta['id'] ?>','<?php echo $pregunta['id_usuario'] ?>')" style="display:none">
                                 <?php endif; ?>
                             </div>
+                            <?php endif; ?>
                             <section class="pregunta-pagina-detalle">
                                         <div>
-                                            <h4><?= $pregunta['titulo'] ?></h4>
-                                            <p><?= $pregunta['descripcion'] ?></p>
+                                            <h4 class="titulo-p"><?= $pregunta['titulo'] ?></h4>
+                                            <p  class="descripcion-pregunta"><?= $pregunta['descripcion'] ?></p>
                                             <?php if(isset($pregunta['imagen'])): ?>
                                                 <img src="../<?= $pregunta['imagen'] ?>" alt="imagen pregunta">
                                             <?php endif; ?>
@@ -117,7 +120,7 @@ if(isset($_GET['pregunta']))
             <div class="respuesta">
                 <p><?= $respuesta['descripcion'] ?></p>
                 <?php if(isset($respuesta['imagen'])): ?>
-                    <img src="<?= $respuesta['imagen'] ?>" alt="imagen respuesta">
+                    <img src="../<?= $respuesta['imagen'] ?>" alt="imagen respuesta">
                 <?php endif; ?>
             </div>
             <?php endforeach; ?>
@@ -125,8 +128,15 @@ if(isset($_GET['pregunta']))
         </div>
         <div class="crear_respuesta">
             <p> ¿Sabes la respuesta? </p>
+
+            <?php if(isset($_SESSION['loggedin']) && isset($_SESSION['id_usuario'])): ?>
+
             <form action="auth/respuestas/crear_respuesta.php" method="post" enctype="multipart/form-data">
                 <textarea class="descripcion" id="descripcion" name="descripcion" placeholder="Escribe tu respuesta"></textarea>
+                <?php if(isset($_SESSION['errors']['descripcion'])): ?>
+                    <small class="mensaje-error"><?= $_SESSION['errors']['descripcion'] ?></small>
+                <?php endif; ?>
+                <input type="hidden" name="id_pregunta" value="<?= $pregunta['id'] ?>">
                 <div class="imagenprev">
                     <input type="file" name="file-2" id="file-2" class="inputfile" data-multiple-caption="{count} archivos seleccionados"  />
                     <label for="file-2">
@@ -139,6 +149,9 @@ if(isset($_GET['pregunta']))
                 </div>
                 <button id="nuevarespuesta">Enviar respuesta</button>
             </form>
+            <?php else: ?>
+                <a href="iniciosesion.php">iniciar sesion para responder</a>
+            <?php endif; ?>
         </div>
     </main>  
     <?php
@@ -204,3 +217,6 @@ if(isset($_GET['pregunta']))
     </script>
 </body>
 </html>
+<?php 
+unset($_SESSION['errors']);
+?>
