@@ -171,112 +171,36 @@ if(isset($_GET['pregunta']))
         require "../componentes/footer.php";
     ?>
     <script src="../js/respuesta_lista.js"></script>
-    <script src="../js/detalle_pregunta.js"></script>
+    <script src="../js/bookmark.js"></script>
     <script>
-       
-        let marcado = document.getElementById('marcado');
-        let nomarcado = document.getElementById('nomarcado');
+        window.addEventListener("load", contarVecesVisitadas);
 
-         function bookmarkPregunta(idPregunta,idUsuario){
+        function contarVecesVisitadas() {
             
-            let formData = new FormData();
-            formData.append('id_pregunta',idPregunta);
-            formData.append('id_usuario',idUsuario);
+            var existe = getCookie("vecesVisitado");
 
-           fetch("http://localhost/php/auth/preguntas/bookmark.php",{
-                method: 'POST',
-                body: formData
-            }).then(res => {
-                return res.json();
-            })
-            .then(data => {
-                if(data.estado == 'ok')
-                {
-                    marcado.style.display = "block";
-                    nomarcado.style.display = "none";
+            if (typeof existe === 'undefined') 
+            {
+                document.cookie = "vecesVisitado=1";
+                alert("Primera vez");
+            }
+            else
+            {
+                var numero = parseInt(existe) + 1;
+                document.cookie = "vecesVisitado="+numero;
+                
+            }
 
-                    alert(data.mensaje);
-                }
-            })
-            ;
-            
         }
 
 
-        function unbookmarkPregunta(idPregunta,idUsuario){
-            
-            let formData = new FormData();
-            formData.append('id_pregunta',idPregunta);
-            formData.append('id_usuario',idUsuario);
 
-           fetch("http://localhost/php/auth/preguntas/unbookmark.php",{
-                method: 'POST',
-                body: formData
-            }).then(res => {
-                return res.json();
-            })
-            .then(data => {
-                if(data.estado == 'ok')
-                {
-                    marcado.style.display = "none";
-                    nomarcado.style.display = "block";
-
-                    alert(data.mensaje);
-                }
-            });
-            
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
         }
-
-        function upvote(respuesta,usuario){
-            let id = `${respuesta}-${usuario}-upvote`;
-          
-
-            let formData = new FormData();
-            formData.append('id_respuesta',respuesta);
-            formData.append('id_usuario',usuario);
-
-            console.log("upvoting");
-             fetch("http://localhost/php/auth/votos/votar.php",{
-                method: 'POST',
-                body: formData
-            }).then(res => {
-                return res.json();
-            })
-            .then(data => {
-                if(data.estado == 'ok')
-                {
-                    console.log(data.upvotes.upvotes);
-                    document.getElementById(id).innerHTML  = data.upvotes.upvotes;
-                    // up
-                }
-            })
-            console.log(document.getElementById(id).innerHTML);
-        }
-        function downvote(respuesta,usuario){
-            let id = respuesta +"-"+usuario + "-downvote";
-            console.log("downvoting");
-
-            let formData = new FormData();
-            formData.append('id_respuesta',respuesta);
-            formData.append('id_usuario',usuario);
-
-            console.log("upvoting");
-             fetch("http://localhost/php/auth/votos/down_votar.php",{
-                method: 'POST',
-                body: formData
-            }).then(res => {
-                return res.json();
-            })
-            .then(data => {
-                if(data.estado == 'ok')
-                {
-                    console.log(data);
-                    document.getElementById(id).innerHTML  = data.downvotes.downvotes;
-
-                }
-            })
-
-        }
+        
     </script>
 </body>
 </html>

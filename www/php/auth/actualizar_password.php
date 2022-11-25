@@ -11,6 +11,15 @@ function vuelveAtras(){
     
 }
 
+function rellenarOldInputs(){
+    foreach($_POST as $key => $value)
+    {
+        $_SESSION['old'][$key] = $value;
+    }
+}
+rellenarOldInputs();
+
+
 
 //VALIDACIONES
 if(!isset($_POST['contrasena_actual']) || $_POST['contrasena_actual'] == "")
@@ -45,16 +54,24 @@ $usuario = buscarUsuarioPorId($dbc, $_SESSION['id_usuario']);
 
 $pass = $_POST['contrasena_actual'];
 
-$result = password_verify($pass, $usuario->password);
 
-$_POST['contrasena_nueva'] = password_hash($_POST['contrasena_nueva'],PASSWORD_BCRYPT);
+if (password_verify($pass, $usuario->password))
+{
+    $_POST['contrasena_nueva'] = password_hash($_POST['contrasena_nueva'],PASSWORD_BCRYPT);
+    $usuarioContrasenaNueva = actualizarContrasena($dbc, $_SESSION['id_usuario'], $_POST['contrasena_nueva']);
+
+    close($dbc);
+}
+else {
+    $_SESSION['errors']['contraseña_actual_error'] = "El campo Password no es correcto";
+    vuelveAtras();
+}
+
 
 //CONEXION Y ACTUALIZAR
 
 
-$usuarioContrasenaNueva = actualizarContrasena($dbc, $_SESSION['id_usuario'], $_POST['contrasena_nueva']);
 
-close($dbc);
 
 if($usuarioContrasenaNueva){
     $_SESSION['exito'] = "Contrasena modificada con exito con exito";

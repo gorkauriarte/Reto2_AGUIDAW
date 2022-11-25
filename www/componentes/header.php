@@ -3,6 +3,7 @@
 if(isset($_SESSION['loggedin'])){
    $usuario = buscarUsuarioPorId(connect() ,(int) $_SESSION['id_usuario']);
    }
+
 ?>
     <nav>
          <div class="logo">
