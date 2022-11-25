@@ -1,9 +1,9 @@
 <?php 
 
-require "php/models/pregunta.php";
-require "php/models/usuario.php";
-require "php/models/etiqueta.php";
-require "php/basedatos.php";
+include "php/models/pregunta.php";
+include "php/models/usuario.php";
+include "php/models/etiqueta.php";
+include "php/basedatos.php";
 
 session_start();
 

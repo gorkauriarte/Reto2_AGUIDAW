@@ -1,6 +1,8 @@
 <?php
 
-$usuario = buscarUsuarioPorId(connect() ,(int) $_SESSION['id_usuario']);
+if(isset($_SESSION['id_usuario'])) {
+   $usuario = buscarUsuarioPorId(connect() ,(int) $_SESSION['id_usuario']);
+}
 ?>
     <nav>
          <div class="logo">

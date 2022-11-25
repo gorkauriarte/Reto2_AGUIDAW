@@ -97,6 +97,7 @@ input[type="checkbox"] {
         display: block;
         transition: all 0.3s ease;
         opacity: 80%;
+        z-index: 999;
     }
     #click:checked~ul {
         left: 0;

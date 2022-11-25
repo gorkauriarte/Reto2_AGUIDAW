@@ -61,17 +61,20 @@ rellenarOldInputs();
 
     $preguntadInsertada =  crearPregunta($dbc,$usuario,$_POST);
 
-    
+  
     //Crear Etiqueta
-    if(isset($_POST["lista_etiqueta"]))
+    if(isset($_POST["lista_etiqueta"]) && $_POST["lista_etiqueta"] != "")
     {
+        
         $lista_etiqueta = $_POST["lista_etiqueta"];
         $etiquetas = explode(",", $lista_etiqueta);
+
+        foreach($etiquetas as $item) {
+            $datosEtiqueta = ["id_pregunta"=>$preguntadInsertada,"id_etiqueta"=>$item];
+            $etiquetaInsertadaPregunta = crearPreguntaEtiqueta($dbc, $datosEtiqueta);
+        }
     }
-    foreach($etiquetas as $item) {
-        $datosEtiqueta = ["id_pregunta"=>$preguntadInsertada,"id_etiqueta"=>$item];
-        $etiquetaInsertadaPregunta = crearPreguntaEtiqueta($dbc, $datosEtiqueta);
-    }
+    
 
     close($dbc);
     if($preguntadInsertada){

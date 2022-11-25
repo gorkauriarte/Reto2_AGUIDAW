@@ -1,5 +1,6 @@
 <?php 
-
+require "models/usuario.php";
+require "basedatos.php";
 session_start();
 
 if(!isset($_SESSION['id_usuario']) || (!isset($_SESSION['loggedin'])) && $_SESSION['loggedin'] == false)
@@ -7,8 +8,6 @@ if(!isset($_SESSION['id_usuario']) || (!isset($_SESSION['loggedin'])) && $_SESSI
     $_SESSION['error-accesso'] = "Tienes que iniciar sesion para crear una pregunta";
     header("location: iniciosesion.php");
 }
-
-
 
 ?>
 
@@ -49,7 +48,6 @@ if(!isset($_SESSION['id_usuario']) || (!isset($_SESSION['loggedin'])) && $_SESSI
                 <div id="etiquetas_elegidas"></div>
                 <select id="etiqueta" class="etiqueta" multiple onchange="mostrarEtiquetasSeleccionadas()">
                     <?php 
-                        require 'basedatos.php';
                         require 'models/etiqueta.php';
                         $dbc = connect();
                         $etiquetas = etiquetas($dbc);

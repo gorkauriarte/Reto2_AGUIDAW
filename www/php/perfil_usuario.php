@@ -95,6 +95,9 @@ $usuario = buscarUsuarioPorId(connect(),(int) $_SESSION['id_usuario']);
                                     <?php if(isset($_SESSION['errors']['contrasena_actual'])): ?>
                                         <small class="mensaje-error"><?= $_SESSION['errors']['contrasena_actual'] ?></small>
                                     <?php endif; ?>
+                                    <?php if(isset($_SESSION['errors']['contraseña_actual_error'])): ?>
+                                        <small class="mensaje-error"><?= $_SESSION['errors']['contraseña_actual_error'] ?></small>
+                                    <?php endif; ?>
                                 </div>
                         </div>
                         <div class="texto_individual">           

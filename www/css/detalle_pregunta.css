@@ -84,7 +84,11 @@ main {
     margin-bottom: .4em;
     text-decoration: underline;
 }
-
+.mensaje-error {
+    color: red;
+    width: 90%;
+    
+}
 .crear_respuesta {
     margin: 3vw 0 2vw 0;
     width: 78vw;
