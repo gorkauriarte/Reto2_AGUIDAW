@@ -10,6 +10,8 @@ function vuelveAtras(){
     exit;
     
 }
+
+
 //VALIDACIONES
 if(!isset($_POST['contrasena_actual']) || $_POST['contrasena_actual'] == "")
 {
@@ -42,6 +44,7 @@ $dbc = connect();
 $usuario = buscarUsuarioPorId($dbc, $_SESSION['id_usuario']);
 
 $pass = $_POST['contrasena_actual'];
+
 $result = password_verify($pass, $usuario->password);
 
 $_POST['contrasena_nueva'] = password_hash($_POST['contrasena_nueva'],PASSWORD_BCRYPT);
