@@ -2,12 +2,12 @@
 session_start();
 require "../basedatos.php";
 require "../models/usuario.php";
+require "../helpers/file_manager.php";
 
-
-var_dump($_POST);
 
 function vuelveAtras(){
     header("location:../perfil_usuario.php");
+    exit;
     
 }
 
@@ -40,29 +40,35 @@ $alias = $_POST['alias'];
 
 //NO ESTA TERMINADO
 // borrar imagen en caso de que el usuario tenga una imagen ya.
-if(isset($_POST['imagen']))
+
+$dbc = connect();
+
+if(isset($_FILES['archivo_imagen']))
 {
-    $result = borrarFoto($_POST['perfil'],"../../imagenes/");
+    $usuarioActual = buscarUsuarioPorId($dbc, $_SESSION["id_usuario"]);
 
-    if ($result) {
+    $imagenActual = $usuarioActual->imagen;
+   
+       /* $result = borrarFoto("../../$imagenActual");
+    if ($result) {*/
 
-        $subir = subirFoto($_POST['perfil'],"../../imagenes/");
+        $subir = subirFoto($_FILES['archivo_imagen'],"../../imagenes/");
+
         if($subir['estado'] == 1)
         {
             $_POST['imagen'] = $subir['ruta'];
         }
-    }
+    //}
 
 }else{
-
+    $_POST['imagen'] = "imagenes/profile.png";
 }
 
-
-
-$usuarioActulizado =  actualizarUsuario(connect(), 1, $_POST);
+$usuarioActulizado =  actualizarUsuario($dbc, $_SESSION["id_usuario"], $_POST);
 
 if($usuarioActulizado){
     $_SESSION['Correcto'] = "Los datos se han cambiado correctamente";
+    header("location:../perfil_usuario.php");
 }
 
 exit;

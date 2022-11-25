@@ -1,8 +1,7 @@
 <?php
-
 session_start();
-//var_dump($_SESSION);
-
+require 'basedatos.php';
+require 'models/usuario.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +17,7 @@ session_start();
 </head>
 <body>
   <?php
-  require ('header.php');
+  require ('../componentes/header.php');
   ?>
   <main>
   <div class="formulario">
@@ -70,7 +69,7 @@ session_start();
   </div>
   </main>
   <?php
-  require ('footer.php');
+  require ('../componentes/footer.php');
   ?>
 
   <script src="../js/help.js"></script>

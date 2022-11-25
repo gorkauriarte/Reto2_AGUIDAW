@@ -1,4 +1,7 @@
+<?php
 
+$usuario = buscarUsuarioPorId(connect() ,(int) $_SESSION['id_usuario']);
+?>
     <nav>
          <div class="logo">
            <a href="../index.php"><img src="../img/Stack_Overflow_icon.svg.png" alt="Error en la imagen"></a>
@@ -10,12 +13,12 @@
          <ul>
             <li><a class="color" href="../index.php">Home</a></li>
             <li><a class="color" href="../php/nosotros.php">Nosotros</a></li>
-            <li><a class="color" href="../componentes/help.php">Help</a></li>
+            <li><a class="color" href="../php/help.php">Help</a></li>
             <?php if(isset($_SESSION['loggedin']) || isset($_SESSION['id_usuario'])): ?>
                <li><a class="color" href="../php/preguntas_guardadas.php">Favoritos</a></li>
                <li><a class="color" href="../php/auth/logout.php">Logout</a></li>
                <li class="perfil">
-           <a href="../php/perfil_usuario.php"><img src="../img/top.jpeg" alt="Error_imagen"></a></li>
+           <a href="../php/perfil_usuario.php"><img src="../<?= $usuario->imagen ?>" alt="Error_imagen"></a></li>
            
 
             <?php else: ?>
