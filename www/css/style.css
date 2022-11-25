@@ -83,6 +83,15 @@ ul.filtros > li > a {
     display: flex;
     justify-content: start;
 }
+.icono-save:hover{
+    cursor: pointer;
+}
+.titulo-p{
+    margin-bottom: 1vh;
+}
+.descripcion-pregunta{
+    margin-bottom: 2vh;
+}
 .section-pregunta{
     width: 100%;
 
