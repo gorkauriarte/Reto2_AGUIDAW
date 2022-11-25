@@ -92,6 +92,7 @@ ul.filtros > li > a {
 .descripcion-pregunta{
     margin-bottom: 2vh;
 }
+
 .section-pregunta{
     width: 100%;
 
@@ -201,10 +202,26 @@ li.pagina{
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-}
-.respuesta {
-    min-width: 100%;
-    border-bottom: 1px solid black;
-    padding: 1em 0.3em;
+    justify-content: start;
 }
 
+.respuesta {
+    min-width: 80%;
+    border-bottom: 1px solid black;
+    padding: 2em 0.3em;
+}
+.img-respuesta{
+    max-height: 10vh;
+    max-width: 10vw;
+    margin: 1em 0;
+}
+.upvote:hover{
+    font-size: 1.8em;
+    transition: 2s;
+    cursor: pointer;
+}
+.downvote:hover{
+    font-size: 1.8em;
+    transition: 2s;
+    cursor: pointer;
+}

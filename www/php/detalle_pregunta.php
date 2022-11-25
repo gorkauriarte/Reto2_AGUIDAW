@@ -7,6 +7,8 @@ require 'models/usuario.php';
 require "models/etiqueta.php";
 require 'models/respuesta.php';
 require 'models/pregunta_guardada.php';
+require 'models/reaccion.php';
+
 $dbc = null;
 if(isset($_GET['pregunta']))
 {
@@ -69,11 +71,11 @@ if(isset($_GET['pregunta']))
                             <?php if(isset($_SESSION['loggedin'])): ?>
                             <div class="bookmark-section">
                                 <?php if($preguntaMarcada): ?>
-                                <img src="../img/bookmarked.png" alt="bookmarked" id="marcado" class="icono-save" onclick="unbookmarkPregunta('<?php echo $pregunta['id'] ?>','<?php echo $pregunta['id_usuario'] ?>')" >
-                                <img src="../img/unbookmark.png" alt="bookmarked" id="nomarcado"  class="icono-save" onclick="bookmarkPregunta('<?php echo $pregunta['id'] ?>','<?php echo $pregunta['id_usuario'] ?>')" style="display:none">
+                                <img src="../img/bookmarked.png" alt="bookmarked" id="marcado" class="icono-save" onclick="unbookmarkPregunta('<?php echo $pregunta['id'] ?>','<?php echo $_SESSION['id_usuario'] ?>')" >
+                                <img src="../img/unbookmark.png" alt="bookmarked" id="nomarcado"  class="icono-save" onclick="bookmarkPregunta('<?php echo $pregunta['id'] ?>','<?php echo $_SESSION['id_usuario'] ?>')" style="display:none">
                                 <?php else: ?>
-                                <img src="../img/unbookmark.png" alt="bookmarked" id="nomarcado"  class="icono-save" onclick="bookmarkPregunta('<?php echo $pregunta['id'] ?>','<?php echo $pregunta['id_usuario'] ?>')" >
-                                <img src="../img/bookmarked.png" alt="bookmarked" id="marcado"  class="icono-save" onclick="unbookmarkPregunta('<?php echo $pregunta['id'] ?>','<?php echo $pregunta['id_usuario'] ?>')" style="display:none">
+                                <img src="../img/unbookmark.png" alt="bookmarked" id="nomarcado"  class="icono-save" onclick="bookmarkPregunta('<?php echo $pregunta['id'] ?>','<?php echo $_SESSION['id_usuario'] ?>')" >
+                                <img src="../img/bookmarked.png" alt="bookmarked" id="marcado"  class="icono-save" onclick="unbookmarkPregunta('<?php echo $pregunta['id'] ?>','<?php echo $_SESSION['id_usuario'] ?>')" style="display:none">
                                 <?php endif; ?>
                             </div>
                             <?php endif; ?>
@@ -82,7 +84,7 @@ if(isset($_GET['pregunta']))
                                             <h4 class="titulo-p"><?= $pregunta['titulo'] ?></h4>
                                             <p  class="descripcion-pregunta"><?= $pregunta['descripcion'] ?></p>
                                             <?php if(isset($pregunta['imagen'])): ?>
-                                                <img src="../<?= $pregunta['imagen'] ?>" alt="imagen pregunta">
+                                                <img src="../<?= $pregunta['imagen'] ?>" alt="imagen pregunta" class="img-pregunta" height="45%" width="45%">
                                             <?php endif; ?>
                                         </div>
                                         <div class="info-pregunta">
@@ -117,12 +119,23 @@ if(isset($_GET['pregunta']))
         <div id="respuestas">
             <?php if(count($respuestas) > 0):  ?>
                 <?php foreach($respuestas as $respuesta): ?>
-            <div class="respuesta">
-                <p><?= $respuesta['descripcion'] ?></p>
-                <?php if(isset($respuesta['imagen'])): ?>
-                    <img src="../<?= $respuesta['imagen'] ?>" alt="imagen respuesta">
-                <?php endif; ?>
-            </div>
+                        <div class="respuesta">
+                            <p><?= $respuesta['descripcion'] ?></p>
+                            <?php if(isset($respuesta['imagen'])): ?>
+                                <img src="../<?= $respuesta['imagen'] ?>" class="img-respuesta" alt="imagen respuesta">
+                            <?php endif; ?>
+                            <div id="votos-respuesta">
+                            <?php $upvotes = buscarUpvotesDeUnaRespuesta($dbc,$respuesta['id']); ?>
+                                <?php $downvotes = buscarDownvotesDeUnaRespuesta($dbc,$respuesta['id']); ?>
+                                <?php if(isset($_SESSION['loggedin'])): ?>      
+                                <h4 onclick="upvote('<?= $respuesta['id'] ?>','<?= $_SESSION['id_usuario'] ?>')" class="upvote">👍 <span id="<?= $respuesta['id'] . '-' . $_SESSION['id_usuario'] ?>-upvote"><?= $upvotes['upvotes'] ?></span></h4>
+                                <h4 onclick="downvote('<?= $respuesta['id'] ?>','<?= $_SESSION['id_usuario'] ?>')" class="downvote">👎 <span id="<?= $respuesta['id'] . '-' . $_SESSION['id_usuario'] ?>-downvote"><?= $downvotes['downvotes'] ?></span></h4>
+                                <?php else: ?>
+                                    <h4>👍 <span><?= $upvotes['upvotes'] ?></span></h4>
+                                    <h4>👎 <span><?= $downvotes['downvotes'] ?></span></h4>
+                                <?php endif; ?>
+                            </div>
+                        </div>
             <?php endforeach; ?>
             <?php endif; ?>
         </div>
@@ -179,6 +192,7 @@ if(isset($_GET['pregunta']))
             }
 
         }
+
 
 
         function getCookie(name) {

@@ -141,7 +141,7 @@ main {
     color: red;
 }
 
-@media screen and (max-width:1200px) {
+@media screen and (max-width:768px) {
     .boton>button {
         padding: 0.5em;
         width: auto;

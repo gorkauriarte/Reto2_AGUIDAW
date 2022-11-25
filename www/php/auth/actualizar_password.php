@@ -10,6 +10,7 @@ function vuelveAtras(){
     exit;
     
 }
+
 function rellenarOldInputs(){
     foreach($_POST as $key => $value)
     {
@@ -17,6 +18,7 @@ function rellenarOldInputs(){
     }
 }
 rellenarOldInputs();
+
 
 
 //VALIDACIONES
@@ -51,6 +53,7 @@ $dbc = connect();
 $usuario = buscarUsuarioPorId($dbc, $_SESSION['id_usuario']);
 
 $pass = $_POST['contrasena_actual'];
+
 
 if (password_verify($pass, $usuario->password))
 {

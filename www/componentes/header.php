@@ -1,8 +1,9 @@
 <?php
 
-if(isset($_SESSION['id_usuario'])) {
+if(isset($_SESSION['loggedin'])){
    $usuario = buscarUsuarioPorId(connect() ,(int) $_SESSION['id_usuario']);
-}
+   }
+
 ?>
     <nav>
          <div class="logo">
@@ -14,17 +15,16 @@ if(isset($_SESSION['id_usuario'])) {
          </label>
          <ul>
             <li><a class="color" href="../index.php">Home</a></li>
-            <li><a class="color" href="../php/nosotros.php">Nosotros</a></li>
             <li><a class="color" href="../php/help.php">Help</a></li>
             <?php if(isset($_SESSION['loggedin']) || isset($_SESSION['id_usuario'])): ?>
-               <li><a class="color" href="../php/preguntas_guardadas.php">Favoritos</a></li>
+               <li><a class="color" href="#">Favoritos</a></li>
                <li><a class="color" href="../php/auth/logout.php">Logout</a></li>
                <li class="perfil">
-           <a href="../php/perfil_usuario.php"><img src="../<?= $usuario->imagen ?>" alt="Error_imagen"></a></li>
+           <a href="../php/perfil_usuario.php"><img src="../<?= $usuario->imagen ?>" alt="perfil"></a></li>
            
 
             <?php else: ?>
-
+            <li><a class="color" href="../php/nosotros.php">Nosotros</a></li>
             <li><a class="color" href="../php/iniciosesion.php">Sign In</a></li>
             <li><a class="color" href="../php/crear_cuenta.php">Sign Up</a></li>
 
