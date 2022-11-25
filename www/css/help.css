@@ -80,7 +80,7 @@ form .mensaje textarea {
     border: 1px solid #ccc;
 }
 
-in .campo input::placeholder,
+.campo input::placeholder,
 .mensaje textarea::placeholder {
     color: #ccc;
 }
