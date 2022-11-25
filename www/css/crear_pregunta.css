@@ -1,0 +1,331 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+
+/*CONTENEDOR EL PADRE*/
+
+main {
+    display: flex;
+    padding: 0 10px;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: #0D6EFD;
+    background: white;
+}
+
+::selection {
+    color: #fff;
+    background: #0D6EFD;
+}
+
+
+/*CLASE DEL FORM*/
+
+.formulario {
+    width: 715px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 12px 12px 12px 12px rgba(0, 0, 0, 0.10);
+}
+
+
+/*TITULO */
+
+.formulario h2 {
+    font-size: 22px;
+    font-weight: 600;
+    padding: 20px 30px;
+    border-bottom: 1px solid #ccc;
+}
+
+.formulario form {
+    margin: 35px 30px;
+}
+
+form .campo input#titulo {
+    padding: 1em
+}
+
+form .campo input#archivo {
+    padding: 1em
+}
+
+.formulario form.disabled {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+
+/*CLASE DE TODOS LOS IMPUT*/
+
+.campo {
+    margin-bottom: 1em;
+}
+
+
+/*ICONO*/
+
+.formulario form i {
+    position: absolute;
+    top: 50%;
+    left: 18px;
+    color: #ccc;
+    font-size: 17px;
+    pointer-events: none;
+    transform: translateY(-50%);
+}
+
+form .campo input,
+form .mensaje textarea {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    padding: 0 18px 0 48px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+
+/*SUBIDA DE ARCHIVO*/
+
+form .archivo {
+    width: 1000%;
+    height: 100%;
+    outline: none;
+    padding: 0 18px 0 48px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.campo input::placeholder,
+.mensaje textarea::placeholder {
+    color: #ccc;
+}
+
+.campo input:focus,
+.mensaje textarea:focus {
+    padding-left: 47px;
+    border: 2px solid #0D6EFD;
+}
+
+.campo input:focus~i,
+.mensaje textarea:focus~i {
+    color: #0D6EFD;
+}
+
+form .mensaje {
+    position: relative;
+}
+
+form .mensaje i {
+    top: 30px;
+    font-size: 20px;
+}
+
+form .mensaje textarea {
+    min-height: 130px;
+    max-height: 230px;
+    max-width: 100%;
+    min-width: 100%;
+    padding: 15px 20px 0 48px;
+}
+
+form .mensaje textarea::-webkit-scrollbar {
+    width: 0px;
+}
+
+.mensaje textarea:focus {
+    padding-top: 14px;
+}
+
+
+/*MENSAJE DE ERROR QUE SALE EN EL FORMULARIO*/
+
+.mensaje-error {
+    color: red;
+}
+
+select#etiqueta {
+    width: 100%;
+    padding: 1em;
+}
+
+
+/*LAS ETIQUETAS*/
+
+select#etiqueta option {
+    border-bottom: 1px solid black;
+    padding: 0.5em;
+    background-color: #5d6d85;
+    color: white;
+}
+
+form .boton {
+    margin: 25px 0;
+    display: flex;
+    align-items: center;
+}
+
+.boton input {
+    color: #fff;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 13px 25px;
+    background: #97b5e2;
+    transition: background 0.3s ease;
+}
+
+.boton input:hover {
+    background: #025ce3;
+}
+
+.item-etqueta {
+    background-color: rgb(0, 113, 183);
+    font-size: .8em;
+    border-radius: 10em 10em;
+    color: white;
+    margin: .4em;
+    padding: .5em;
+    width: 10em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+
+
+/*MEDIA*/
+
+@media (max-width: 700px) {
+    .formulario h2 {
+        text-align: center;
+    }
+    .formulario form {
+        margin: 35px 20px;
+    }
+    form .mensaje textarea {
+        resize: none;
+    }
+    form .boton {
+        margin-top: 20px;
+        flex-direction: column;
+    }
+    .boton input {
+        width: 100%;
+        padding: 11px 0;
+        font-size: 16px;
+    }
+    .boton span {
+        margin: 20px 0 0;
+        text-align: center;
+    }
+}
+
+
+/*.formulario {
+    display: flex;
+    flex-direction: column;
+    width: 70vw;
+    width: 715px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 12px 12px 12px 12px rgba(0, 0, 0, 0.10);
+}
+
+.todo form {
+    margin: 35px 30px;
+}
+
+.formulario .campo input,
+.mensaje textarea {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    padding: 0 18px 0 48px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.mensaje-error {
+    color: red;
+}
+
+.formulario>.titulo {
+    padding: .4em;
+    margin: .4em 0;
+    font-size: 1.1em;
+    color: black;
+}
+
+.formulario>.titulo::placeholder {
+    color: black;
+}
+
+.formulario>.descripcion {
+    min-width: 70vw;
+    max-width: 70vw;
+    padding: .4em;
+    margin: .4em 0;
+    font-size: .9em;
+    color: black;
+    height: 20vh;
+}
+
+.formulario>.descripcion::placeholder {
+    color: black;
+}
+
+.formulario>.archivo {
+    margin: .4em 0;
+}
+
+.lista-etiquetas {
+    list-style: none;
+    display: flex;
+}
+
+.item-etqueta {
+    background-color: rgb(0, 113, 183);
+    font-size: .8em;
+    border-radius: 10em 10em;
+    color: white;
+    margin: .4em;
+    padding: .5em;
+    width: 10em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.formulario>.etiqueta {
+    margin: .4em 0;
+    width: 30%;
+}
+
+.formulario>.boton {
+    display: flex;
+    justify-content: center;
+}
+
+.formulario>.boton>input {
+    padding: .3em;
+    margin: .4em 0 1.6em 0;
+    width: 10vw;
+    display: flex;
+    justify-content: center;
+    font-size: 1em;
+    border-radius: 20px;
+}*/

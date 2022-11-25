@@ -1,12 +1,18 @@
 <?php 
 
-include "php/models/pregunta.php";
-include "php/models/usuario.php";
-include "php/models/etiqueta.php";
-include "php/basedatos.php";
+require "models/pregunta_guardada.php";
+require "models/respuesta.php";
+require "models/usuario.php";
+require "models/etiqueta.php";
+require "basedatos.php";
 
 session_start();
 
+if(!isset($_SESSION['id_usuario']) || (!isset($_SESSION['loggedin'])) && $_SESSION['loggedin'] == false)
+{
+    $_SESSION['error-accesso'] = "Tienes que iniciar sesion para crear una pregunta";
+    header("location: iniciosesion.php");
+}
 
 $preguntas = [];
 $cantidadPreguntas = 0;
@@ -56,9 +62,9 @@ else{
     $desde = ($page - 1) * 10;
     $hasta = 10;
 
-    $todasPreguntas = preguntas(connect())->fetchAll();
+    $todasPreguntas = todasPreguntasGuardadas(connect(),(int) $_SESSION['id_usuario'])->fetchAll();
 
-    $preguntas = todasPreguntasConNumroDeRespuestasYUsuario(connect(),$desde,$hasta)->fetchAll();
+    $preguntas = todasPreguntasGuardadasConNumroDeRespuestasYUsuario(connect(),(int) $_SESSION['id_usuario'],$desde,$hasta)->fetchAll();
     $cantidadPreguntas = count($todasPreguntas);
 }
 
@@ -68,11 +74,6 @@ function cogerPerfil($id_usuario)
     $usuario = buscarUsuarioPorId(connect(),$id_usuario);
     return $usuario;
 }
-
-function paginatePreguntas(){
-
-}
-
 
 
 ?>
@@ -88,16 +89,16 @@ function paginatePreguntas(){
     <title>Principal</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
 
 
     <?php
-        require('componentes/header.php');
+        require('../componentes/header.php');
     ?>
    
     <main>
@@ -108,7 +109,7 @@ function paginatePreguntas(){
         <div class="preguntas">
 
             <section class="cabeza">
-                <h2>Todas Preguntas</h2>
+                <h2>Preguntas Guardadas</h2>
                 <div class="buscador">
                     <form action="index.php" method="get">
                         <input type="text" name="buscar_titulo" placeholder="buscar por titulo" id="campo-buscador" value="<?= isset($_GET['buscar_titulo']) ? $_GET['buscar_titulo'] : '' ?>">
@@ -134,12 +135,12 @@ function paginatePreguntas(){
                     <section class="todas-preguntas">
                         <div class="detalle-pregunta">  
                             <div class="cantidad-respuesta">
-                                <h5><?= $pregunta['answers'] ?> respuestas</h5>
+                                <h5><?= count(buscarRespuestaDeUnaPregunta(connect(),$pregunta['id'])) ?> respuestas</h5>
                             </div>
                             <div class="section-pregunta">
                                 <div class="pregunta">
 
-                                    <h4><a href="php/detalle_pregunta.php?pregunta=<?= $pregunta['id'] ?>" class="titulo-pregunta"><?= $pregunta['titulo'] ?></a></h4>
+                                    <h4><a href="detalle_pregunta.php?pregunta=<?= $pregunta['id'] ?>" class="titulo-pregunta"><?= $pregunta['titulo'] ?></a></h4>
                                     <p><?= substr_replace($pregunta['descripcion'],"...",300) ?></p>
 
 
@@ -158,7 +159,7 @@ function paginatePreguntas(){
                                                 <?php                                                
                                                     $perfilUsuario = cogerPerfil($pregunta['id_usuario']);                                               
                                                 ?>
-                                                <img src="<?= $perfilUsuario->imagen ?? "imagenes/profile.png" ?>" alt="perfil usuario">
+                                                <img src="../<?= $perfilUsuario->imagen ?? "../imagenes/profile.png" ?>" alt="perfil usuario">
                                             </div>
                                             <div class="nombre-usuario-fecha">
                                                 <h5><?= $perfilUsuario->nombre ?></h5>
@@ -188,7 +189,7 @@ function paginatePreguntas(){
     </main>
 
     <?php
-        require('componentes/footer.php');
+        require('../componentes/footer.php');
     ?>
 </body>
 </html>
