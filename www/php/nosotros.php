@@ -1,5 +1,7 @@
 <?php
 session_start();
+require 'basedatos.php';
+require 'models/usuario.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">
