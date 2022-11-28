@@ -181,7 +181,7 @@ li.pagina{
     justify-content: space-between;
     align-items: stretch;
     margin: 0 auto;
-    width: 70%;
+    width: 100%;
 }
 .bookmark-section{
     margin-right: 3em;

@@ -111,23 +111,12 @@ function cogerPerfil($id_usuario)
             <section class="cabeza">
                 <h2>Preguntas Guardadas</h2>
                 <div class="buscador">
-                    <form action="index.php" method="get">
-                        <input type="text" name="buscar_titulo" placeholder="buscar por titulo" id="campo-buscador" value="<?= isset($_GET['buscar_titulo']) ? $_GET['buscar_titulo'] : '' ?>">
-                        <input type="submit" name="buscar" value="🔍" id="btn-buscar">
-                    </form>
-                    <a href="php/crear_pregunta.php"><button class="preguntar">Preguntar</button></a>
+                    
+                    <a href="crear_pregunta.php"><button class="preguntar">Preguntar</button></a>
                 </div>
             </section>
             <section class="seccion-filtros">
                 <h4><?= $cantidadPreguntas ?> preguntas</h4>
-                <div class="filtros-pregunta">
-                    <ul class="filtros">
-                        <li><a href="index.php?por_fecha=true">Por fecha</a></li>
-                        <li><a href="index.php?por_titulo=true">Por titulo</a></li>
-                        <li><a href="index.php?mas_respuestas=true">mas respuestas</a></li>
-                        <li><a href="index.php?menor_respuestas=true">menor respuestas</a></li>
-                    </ul>
-                </div>
             </section> 
             <div class="contenido-preguntas">
                 <?php if($cantidadPreguntas > 0): ?>

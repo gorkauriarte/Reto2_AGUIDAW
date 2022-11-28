@@ -214,6 +214,7 @@ if(isset($_GET['pregunta']))
             console.log("upvoting");
              fetch("http://localhost/php/auth/votos/votar.php",{
                 method: 'POST',
+                credentials: "same-origin",
                 body: formData
             }).then(res => {
                 return res.json();
@@ -239,6 +240,7 @@ if(isset($_GET['pregunta']))
             console.log("upvoting");
              fetch("http://localhost/php/auth/votos/down_votar.php",{
                 method: 'POST',
+                credentials: "same-origin",
                 body: formData
             }).then(res => {
                 return res.json();
