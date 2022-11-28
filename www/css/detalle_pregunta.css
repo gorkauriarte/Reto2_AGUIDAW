@@ -12,7 +12,7 @@ main {
 }
 .pregunta{
     margin-top: 2em;
-    width: 80vw;
+    max-width: 80vw;
     display: grid;
     grid-template-columns: 75% 25%;
     grid-template-rows: repeat(3, auto);

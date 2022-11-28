@@ -9,14 +9,14 @@
     }
 
     function buscarUpvotesDeUnaRespuesta($dbc,$id_respuesta){
-        $sql = "select count(*) upvotes from reacciones where id_respuesta=:id_respuesta and reaccion=1";
+        $sql = "select count(*) upvotes from reacciones where id_respuesta=:id_respuesta and megusta=1";
         $statement = $dbc->prepare($sql);
         $statement->bindParam('id_respuesta',$id_respuesta);
         $statement->execute();
         return $statement->fetch();
     }
     function buscarDownvotesDeUnaRespuesta($dbc,$id_respuesta){
-        $sql = "select count(*) downvotes from reacciones where id_respuesta=:id_respuesta and reaccion=-1";
+        $sql = "select count(*) downvotes from reacciones where id_respuesta=:id_respuesta and nomegusta=1";
         $statement = $dbc->prepare($sql);
         $statement->bindParam('id_respuesta',$id_respuesta);
         $statement->execute();
@@ -25,7 +25,7 @@
 
     function buscarUpvotes($dbc,$id_respuesta,$id_usuario)
     {
-        $sql = "select count(*) as upvotes from reacciones where (id_respuesta=:id_respuesta and id_usuario=:id_usuario) and reaccion=1";
+        $sql = "select count(*) as upvotes from reacciones where (id_respuesta=:id_respuesta and id_usuario=:id_usuario) and megusta=1";
 
         $statement = $dbc->prepare($sql);
 
@@ -38,7 +38,7 @@
 
     function buscarDownvotes($dbc,$id_respuesta,$id_usuario)
     {
-        $sql = "select count(*) as downvotes from reacciones where (id_respuesta=:id_respuesta and id_usuario=:id_usuario) and reaccion=-1";
+        $sql = "select count(*) as downvotes from reacciones where (id_respuesta=:id_respuesta and id_usuario=:id_usuario) and nomegusta=1";
 
         $statement = $dbc->prepare($sql);
 
@@ -51,7 +51,7 @@
 
     function upvote($dbc,$id_respuesta,$id_usuario)
     {
-        $sql = "insert into reacciones(reaccion,id_usuario,id_respuesta) values(1,:id_user,:id_res)";
+        $sql = "insert into reacciones(megusta,id_usuario,id_respuesta) values(1,:id_user,:id_res)";
         $statement = $dbc->prepare($sql);
         $statement->bindParam('id_user',$id_usuario);
         $statement->bindParam('id_res',$id_respuesta);
@@ -61,7 +61,7 @@
 
     function downvote($dbc,$id_respuesta,$id_usuario)
     {
-        $sql = "insert into reacciones(reaccion,id_usuario,id_respuesta) values(-1,:id_user,:id_res)";
+        $sql = "insert into reacciones(nomegusta,id_usuario,id_respuesta) values(1,:id_user,:id_res)";
         $statement = $dbc->prepare($sql);
         $statement->bindParam('id_user',$id_usuario);
         $statement->bindParam('id_res',$id_respuesta);
