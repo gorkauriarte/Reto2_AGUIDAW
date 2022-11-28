@@ -42,11 +42,11 @@ $alias = $_POST['alias'];
 // borrar imagen en caso de que el usuario tenga una imagen ya.
 
 $dbc = connect();
+$usuarioActual = buscarUsuarioPorId($dbc, $_SESSION["id_usuario"]);
 
 if(isset($_FILES['archivo_imagen']) && $_FILES['archivo_imagen']['name'] != "")
 {
    
-    $usuarioActual = buscarUsuarioPorId($dbc, $_SESSION["id_usuario"]);
 
     $imagenActual = $usuarioActual->imagen;
    
@@ -61,7 +61,11 @@ if(isset($_FILES['archivo_imagen']) && $_FILES['archivo_imagen']['name'] != "")
         }
     //}
 
-}else{
+}
+else if(isset($usuarioActual->imagen)){
+    $_POST['imagen'] = $usuarioActual->imagen;
+}
+else{
     $_POST['imagen'] = "imagenes/profile.png";
 }
 

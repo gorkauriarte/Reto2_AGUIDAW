@@ -78,7 +78,7 @@ $alias = $_POST['alias'];
 $_POST['password'] = password_hash($_POST['password'],PASSWORD_BCRYPT);
 
 $imagen = "imagenes/profile.png"; // una imagen por defecto en caso de que el usuario no suba la foto
-if(isset($_FILES['perfil']))
+if(isset($_FILES['perfil']) && $_FILES['perfil']['name'] != '')
 {
     $result = subirFoto($_FILES['perfil'],"../../imagenes/");
     if($result['estado'] == 1)
